@@ -1,0 +1,84 @@
+// ============================================
+// TYPOGRAPHY BASE STYLES
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// HEADINGS
+// ----------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-snug;
+}
+
+// ----------------------------------------
+// DISPLAY CLASSES
+// ----------------------------------------
+
+.display-xl {
+  font-size: $font-size-display-xl;
+  font-weight: $font-weight-black;
+  letter-spacing: $letter-spacing-tighter;
+  line-height: $line-height-tight;
+}
+
+.display-lg {
+  font-size: $font-size-display-lg;
+  font-weight: $font-weight-extrabold;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-snug;
+}
+
+.display-md {
+  font-size: $font-size-display-md;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-snug;
+}
+
+// ----------------------------------------
+// TEXT EFFECTS
+// ----------------------------------------
+
+.gradient-text {
+  @include text-gradient;
+}
+
+.text-glow-cyan {
+  @include text-glow($color-accent-cyan);
+}
+
+.text-glow-magenta {
+  @include text-glow($color-accent-magenta);
+}
+
+.text-glow-violet {
+  @include text-glow($color-accent-violet);
+}
+
+// ----------------------------------------
+// UTILITY CLASSES
+// ----------------------------------------
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-truncate {
+  @include truncate(1);
+}
+
+.text-truncate-2 {
+  @include truncate(2);
+}
+
+.text-truncate-3 {
+  @include truncate(3);
+}
+
+.label-mono {
+  @include label-mono;
+}

@@ -1,0 +1,232 @@
+// ============================================
+// COMPASSIONATE DESIGN - SASS VARIABLES
+// ============================================
+
+// ----------------------------------------
+// COLORS - Core Palette
+// ----------------------------------------
+
+// Backgrounds (Dark Theme)
+$color-background: #0A0A0F;
+$color-background-secondary: #12121A;
+$color-background-tertiary: #1A1A25;
+
+// Foreground (Text)
+$color-foreground: #EDEDED;
+$color-foreground-muted: #A0A0A0;
+
+// Accent Colors (Neon Palette)
+$color-accent-cyan: #00F5FF;
+$color-accent-magenta: #FF006E;
+$color-accent-violet: #A855F7;
+$color-accent-gold: #FFB627;
+$color-accent-green: #00FF88;
+
+// ----------------------------------------
+// COLORS - Semantic
+// ----------------------------------------
+
+// Status Colors
+$color-status-available: $color-accent-cyan;
+$color-status-beta: $color-accent-violet;
+$color-status-alpha: $color-accent-green;
+$color-status-investment: $color-accent-magenta;
+$color-status-concept: $color-accent-gold;
+
+// Feedback Colors
+$color-success: $color-accent-green;
+$color-warning: $color-accent-gold;
+$color-error: $color-accent-magenta;
+$color-info: $color-accent-cyan;
+
+// ----------------------------------------
+// COLORS - With Opacity
+// ----------------------------------------
+
+// Glassmorphism
+$glass-background: rgba($color-background-secondary, 0.8);
+$glass-border: rgba(255, 255, 255, 0.1);
+$glass-border-hover: rgba(255, 255, 255, 0.2);
+
+// Glow Colors (at various opacities)
+$glow-cyan-50: rgba($color-accent-cyan, 0.5);
+$glow-cyan-30: rgba($color-accent-cyan, 0.3);
+$glow-cyan-15: rgba($color-accent-cyan, 0.15);
+
+$glow-magenta-50: rgba($color-accent-magenta, 0.5);
+$glow-magenta-30: rgba($color-accent-magenta, 0.3);
+$glow-magenta-15: rgba($color-accent-magenta, 0.15);
+
+$glow-violet-50: rgba($color-accent-violet, 0.5);
+$glow-violet-30: rgba($color-accent-violet, 0.3);
+$glow-violet-15: rgba($color-accent-violet, 0.15);
+
+// Overlays
+$overlay-light: rgba(0, 0, 0, 0.3);
+$overlay-medium: rgba(0, 0, 0, 0.5);
+$overlay-heavy: rgba(0, 0, 0, 0.8);
+
+// ----------------------------------------
+// GRADIENTS
+// ----------------------------------------
+
+$gradient-hero: linear-gradient(135deg, $color-accent-cyan, $color-accent-magenta);
+$gradient-card: linear-gradient(180deg, $color-background-secondary, $color-background);
+$gradient-cyan-violet: linear-gradient(135deg, $color-accent-cyan, $color-accent-violet);
+$gradient-magenta-violet: linear-gradient(135deg, $color-accent-magenta, $color-accent-violet);
+$gradient-spectrum: linear-gradient(135deg, $color-accent-cyan, $color-accent-magenta, $color-accent-violet);
+
+// ----------------------------------------
+// TYPOGRAPHY
+// ----------------------------------------
+
+// Font Families
+$font-family-sans: 'Geist Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-mono: 'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+
+// Font Sizes (using clamp for fluid typography)
+$font-size-display-xl: clamp(3.5rem, 12vw, 10rem);
+$font-size-display-lg: clamp(2.5rem, 8vw, 6rem);
+$font-size-display-md: clamp(1.75rem, 5vw, 3.5rem);
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
+$font-size-h4: 1.25rem;
+$font-size-body: 1rem;
+$font-size-small: 0.875rem;
+$font-size-tiny: 0.75rem;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Line Heights
+$line-height-tight: 0.95;
+$line-height-snug: 1.1;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.6;
+
+// Letter Spacing
+$letter-spacing-tighter: -0.04em;
+$letter-spacing-tight: -0.03em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+$letter-spacing-wider: 0.1em;
+
+// ----------------------------------------
+// SPACING
+// ----------------------------------------
+
+$space-1: 0.25rem;   // 4px
+$space-2: 0.5rem;    // 8px
+$space-3: 0.75rem;   // 12px
+$space-4: 1rem;      // 16px
+$space-5: 1.25rem;   // 20px
+$space-6: 1.5rem;    // 24px
+$space-8: 2rem;      // 32px
+$space-10: 2.5rem;   // 40px
+$space-12: 3rem;     // 48px
+$space-16: 4rem;     // 64px
+$space-20: 5rem;     // 80px
+$space-24: 6rem;     // 96px
+$space-32: 8rem;     // 128px
+
+// ----------------------------------------
+// LAYOUT
+// ----------------------------------------
+
+$container-max: 1440px;
+$container-content: 1280px;
+$container-narrow: 768px;
+
+$section-padding: clamp(4rem, 10vw, 8rem);
+$section-gap: clamp(2rem, 5vw, 4rem);
+
+$grid-gap: 1.5rem;
+$grid-gap-lg: 2rem;
+$card-gap: 1.5rem;
+
+// ----------------------------------------
+// BORDERS
+// ----------------------------------------
+
+$border-radius-sm: 0.375rem;  // 6px
+$border-radius-md: 0.5rem;    // 8px
+$border-radius-lg: 0.75rem;   // 12px
+$border-radius-xl: 1rem;      // 16px
+$border-radius-2xl: 1.5rem;   // 24px
+$border-radius-full: 9999px;
+
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+// ----------------------------------------
+// SHADOWS
+// ----------------------------------------
+
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3);
+$shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+// Glow Shadows
+$shadow-glow-cyan: 0 0 20px $glow-cyan-50;
+$shadow-glow-magenta: 0 0 20px $glow-magenta-50;
+$shadow-glow-violet: 0 0 20px $glow-violet-50;
+
+// ----------------------------------------
+// ANIMATION
+// ----------------------------------------
+
+// Timing Functions (Easings)
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+$ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Durations
+$duration-fast: 150ms;
+$duration-normal: 300ms;
+$duration-slow: 500ms;
+$duration-slower: 800ms;
+
+// ----------------------------------------
+// BREAKPOINTS
+// ----------------------------------------
+
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+);
+
+// ----------------------------------------
+// Z-INDEX SCALE
+// ----------------------------------------
+
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 400;
+$z-index-modal: 500;
+$z-index-popover: 600;
+$z-index-tooltip: 700;
+$z-index-toast: 800;
+
+// ----------------------------------------
+// EFFECTS
+// ----------------------------------------
+
+$blur-sm: 4px;
+$blur-md: 8px;
+$blur-lg: 16px;
+$blur-xl: 24px;
+$blur-glass: 20px;

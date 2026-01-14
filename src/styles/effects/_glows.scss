@@ -1,0 +1,100 @@
+// ============================================
+// GLOW EFFECTS
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// BOX GLOW CLASSES
+// ----------------------------------------
+
+.glow-cyan {
+  box-shadow: $shadow-glow-cyan;
+}
+
+.glow-magenta {
+  box-shadow: $shadow-glow-magenta;
+}
+
+.glow-violet {
+  box-shadow: $shadow-glow-violet;
+}
+
+// ----------------------------------------
+// HOVER GLOW EFFECTS
+// ----------------------------------------
+
+.hover-glow-cyan {
+  transition: box-shadow $duration-normal $ease-out-expo;
+  @include glow-hover($color-accent-cyan);
+}
+
+.hover-glow-magenta {
+  transition: box-shadow $duration-normal $ease-out-expo;
+  @include glow-hover($color-accent-magenta);
+}
+
+.hover-glow-violet {
+  transition: box-shadow $duration-normal $ease-out-expo;
+  @include glow-hover($color-accent-violet);
+}
+
+// ----------------------------------------
+// PULSING GLOW
+// ----------------------------------------
+
+.pulse-glow-cyan {
+  @include pulse-glow($color-accent-cyan);
+}
+
+.pulse-glow-magenta {
+  @include pulse-glow($color-accent-magenta);
+}
+
+.pulse-glow-violet {
+  @include pulse-glow($color-accent-violet);
+}
+
+// ----------------------------------------
+// ACCENT LINE GLOWS
+// ----------------------------------------
+
+.accent-line-cyan {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $color-accent-cyan, transparent);
+    opacity: 0.5;
+    transition: opacity $duration-normal ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.accent-line-magenta {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $color-accent-magenta, transparent);
+    opacity: 0.5;
+    transition: opacity $duration-normal ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}

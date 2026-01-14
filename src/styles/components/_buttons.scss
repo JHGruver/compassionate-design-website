@@ -1,0 +1,150 @@
+// ============================================
+// BUTTON COMPONENTS
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// BASE BUTTON
+// ----------------------------------------
+
+.btn {
+  @include button-base;
+  @include focus-ring;
+}
+
+// ----------------------------------------
+// BUTTON VARIANTS
+// ----------------------------------------
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-secondary {
+  @include button-secondary;
+}
+
+.btn-ghost {
+  @include button-base;
+  background: transparent;
+  color: $color-foreground;
+  border: none;
+  padding: $space-4 $space-6;
+
+  &:hover:not(:disabled) {
+    color: $color-accent-cyan;
+    background: rgba($color-accent-cyan, 0.1);
+  }
+}
+
+.btn-accent-cyan {
+  @include button-base;
+  background: $color-accent-cyan;
+  color: $color-background;
+  border: none;
+  padding: $space-4 $space-8;
+
+  &:hover:not(:disabled) {
+    background: tint($color-accent-cyan, 10%);
+    @include glow($color-accent-cyan, 30px, 0.4);
+  }
+}
+
+.btn-accent-magenta {
+  @include button-base;
+  background: $color-accent-magenta;
+  color: white;
+  border: none;
+  padding: $space-4 $space-8;
+
+  &:hover:not(:disabled) {
+    background: tint($color-accent-magenta, 10%);
+    @include glow($color-accent-magenta, 30px, 0.4);
+  }
+}
+
+// ----------------------------------------
+// BUTTON SIZES
+// ----------------------------------------
+
+.btn-sm {
+  padding: $space-2 $space-4;
+  font-size: $font-size-small;
+  border-radius: $border-radius-sm;
+}
+
+.btn-md {
+  padding: $space-3 $space-6;
+  font-size: $font-size-body;
+  border-radius: $border-radius-md;
+}
+
+.btn-lg {
+  padding: $space-4 $space-8;
+  font-size: 1.125rem;
+  border-radius: $border-radius-lg;
+}
+
+.btn-xl {
+  padding: $space-5 $space-10;
+  font-size: 1.25rem;
+  border-radius: $border-radius-lg;
+}
+
+// ----------------------------------------
+// BUTTON WITH ICON
+// ----------------------------------------
+
+.btn-icon {
+  @include flex-center;
+  gap: $space-2;
+
+  svg {
+    width: 1.25em;
+    height: 1.25em;
+  }
+}
+
+.btn-icon-only {
+  @include button-base;
+  @include flex-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: $border-radius-md;
+
+  &.btn-sm {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.btn-lg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+// ----------------------------------------
+// BUTTON GROUP
+// ----------------------------------------
+
+.btn-group {
+  display: inline-flex;
+
+  .btn {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $border-radius-md 0 0 $border-radius-md;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius-md $border-radius-md 0;
+    }
+
+    &:not(:last-child) {
+      border-right: none;
+    }
+  }
+}

@@ -1,0 +1,202 @@
+// ============================================
+// COMPASSIONATE DESIGN - SASS FUNCTIONS
+// ============================================
+
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+@use 'variables' as *;
+
+// ----------------------------------------
+// COLOR FUNCTIONS
+// ----------------------------------------
+
+/// Lighten a color by mixing with white
+/// @param {Color} $color - Color to lighten
+/// @param {Number} $amount - Amount to lighten (0-100)
+/// @return {Color}
+@function tint($color, $amount) {
+  @return color.mix(white, $color, $amount);
+}
+
+/// Darken a color by mixing with black
+/// @param {Color} $color - Color to darken
+/// @param {Number} $amount - Amount to darken (0-100)
+/// @return {Color}
+@function shade($color, $amount) {
+  @return color.mix(black, $color, $amount);
+}
+
+/// Get color with opacity
+/// @param {Color} $color - Base color
+/// @param {Number} $opacity - Opacity value (0-1)
+/// @return {Color}
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/// Create glow color at standard opacity
+/// @param {Color} $color - Glow color
+/// @param {Number} $opacity [0.5] - Opacity
+/// @return {Color}
+@function glow-color($color, $opacity: 0.5) {
+  @return rgba($color, $opacity);
+}
+
+// ----------------------------------------
+// SPACING FUNCTIONS
+// ----------------------------------------
+
+/// Convert pixels to rem
+/// @param {Number} $pixels - Pixel value
+/// @param {Number} $base [16] - Base font size
+/// @return {Number}
+@function px-to-rem($pixels, $base: 16) {
+  @return math.div($pixels, $base) * 1rem;
+}
+
+/// Convert rem to pixels
+/// @param {Number} $rem - Rem value
+/// @param {Number} $base [16] - Base font size
+/// @return {Number}
+@function rem-to-px($rem, $base: 16) {
+  @return math.div($rem, 1rem) * $base * 1px;
+}
+
+/// Get spacing value from scale
+/// @param {Number} $step - Spacing step (1, 2, 3, etc.)
+/// @return {Number}
+@function space($step) {
+  $spacing-map: (
+    1: $space-1,
+    2: $space-2,
+    3: $space-3,
+    4: $space-4,
+    5: $space-5,
+    6: $space-6,
+    8: $space-8,
+    10: $space-10,
+    12: $space-12,
+    16: $space-16,
+    20: $space-20,
+    24: $space-24,
+    32: $space-32
+  );
+
+  @if map.has-key($spacing-map, $step) {
+    @return map.get($spacing-map, $step);
+  } @else {
+    @warn "Unknown spacing step: #{$step}";
+    @return $step * 0.25rem;
+  }
+}
+
+// ----------------------------------------
+// BREAKPOINT FUNCTIONS
+// ----------------------------------------
+
+/// Get breakpoint value
+/// @param {String} $name - Breakpoint name
+/// @return {Number}
+@function breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  } @else {
+    @warn "Unknown breakpoint: #{$name}";
+    @return null;
+  }
+}
+
+// ----------------------------------------
+// Z-INDEX FUNCTIONS
+// ----------------------------------------
+
+/// Get z-index value from scale
+/// @param {String} $layer - Layer name
+/// @return {Number}
+@function z($layer) {
+  $z-layers: (
+    'dropdown': $z-index-dropdown,
+    'sticky': $z-index-sticky,
+    'fixed': $z-index-fixed,
+    'modal-backdrop': $z-index-modal-backdrop,
+    'modal': $z-index-modal,
+    'popover': $z-index-popover,
+    'tooltip': $z-index-tooltip,
+    'toast': $z-index-toast
+  );
+
+  @if map.has-key($z-layers, $layer) {
+    @return map.get($z-layers, $layer);
+  } @else {
+    @warn "Unknown z-index layer: #{$layer}";
+    @return 1;
+  }
+}
+
+// ----------------------------------------
+// TYPOGRAPHY FUNCTIONS
+// ----------------------------------------
+
+/// Calculate fluid font size
+/// @param {Number} $min-size - Minimum size in rem
+/// @param {Number} $max-size - Maximum size in rem
+/// @param {Number} $min-width [320] - Minimum viewport width
+/// @param {Number} $max-width [1440] - Maximum viewport width
+/// @return {String}
+@function fluid-type($min-size, $max-size, $min-width: 320, $max-width: 1440) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $y-intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size},
+    #{$y-intercept}rem + #{$slope * 100}vw,
+    #{$max-size}
+  );
+}
+
+// ----------------------------------------
+// SHADOW FUNCTIONS
+// ----------------------------------------
+
+/// Create glow shadow
+/// @param {Color} $color - Glow color
+/// @param {Number} $size [20px] - Glow size
+/// @param {Number} $opacity [0.5] - Glow opacity
+/// @return {String}
+@function glow-shadow($color, $size: 20px, $opacity: 0.5) {
+  @return 0 0 $size rgba($color, $opacity);
+}
+
+/// Create multi-layer glow
+/// @param {Color} $color - Glow color
+/// @return {String}
+@function multi-glow($color) {
+  @return
+    0 0 20px rgba($color, 0.3),
+    0 0 40px rgba($color, 0.2),
+    0 0 60px rgba($color, 0.1);
+}
+
+// ----------------------------------------
+// UTILITY FUNCTIONS
+// ----------------------------------------
+
+/// Strip unit from number
+/// @param {Number} $number - Number with unit
+/// @return {Number}
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+/// Clamp a value between min and max
+/// @param {Number} $value - Value to clamp
+/// @param {Number} $min - Minimum value
+/// @param {Number} $max - Maximum value
+/// @return {Number}
+@function clamp-value($value, $min, $max) {
+  @return if($value < $min, $min, if($value > $max, $max, $value));
+}

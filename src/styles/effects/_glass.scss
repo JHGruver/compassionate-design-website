@@ -1,0 +1,62 @@
+// ============================================
+// GLASSMORPHISM EFFECTS
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// BASE GLASS
+// ----------------------------------------
+
+.glass {
+  @include glass;
+}
+
+.glass-card {
+  @include glass-card;
+}
+
+// ----------------------------------------
+// GLASS VARIANTS
+// ----------------------------------------
+
+.glass-light {
+  @include glass($blur-glass, 0.6);
+}
+
+.glass-dark {
+  @include glass($blur-glass, 0.9);
+}
+
+.glass-subtle {
+  @include glass($blur-md, 0.5);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+// ----------------------------------------
+// GLASS WITH ACCENT BORDERS
+// ----------------------------------------
+
+.glass-cyan {
+  @include glass;
+
+  &:hover {
+    border-color: $color-accent-cyan;
+  }
+}
+
+.glass-magenta {
+  @include glass;
+
+  &:hover {
+    border-color: $color-accent-magenta;
+  }
+}
+
+.glass-violet {
+  @include glass;
+
+  &:hover {
+    border-color: $color-accent-violet;
+  }
+}

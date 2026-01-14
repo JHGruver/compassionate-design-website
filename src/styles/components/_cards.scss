@@ -1,0 +1,230 @@
+// ============================================
+// CARD COMPONENTS
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// BASE CARD
+// ----------------------------------------
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: $border-width-thin solid rgba(255, 255, 255, 0.08);
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  transition: all $duration-normal $ease-out-expo;
+}
+
+.card-glass {
+  @include glass-card;
+}
+
+// ----------------------------------------
+// IP CARD (Product Card)
+// ----------------------------------------
+
+.ip-card {
+  @extend .card;
+  cursor: pointer;
+
+  // Custom property for IP color
+  --ip-color: #{$color-accent-cyan};
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(var(--ip-color-rgb), 0.25);
+    border-color: rgba(var(--ip-color-rgb), 0.4);
+  }
+
+  // Image section
+  &__image {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $duration-slow $ease-out-expo;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    // Gradient overlay
+    &::after {
+      content: '';
+      @include overlay;
+      background: linear-gradient(
+        to top,
+        $color-background 0%,
+        rgba($color-background, 0.4) 50%,
+        transparent 100%
+      );
+    }
+  }
+
+  // Content section
+  &__content {
+    padding: $space-5;
+  }
+
+  // Title
+  &__title {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+    margin-bottom: $space-1;
+    transition: color $duration-normal ease;
+  }
+
+  &:hover &__title {
+    color: white;
+  }
+
+  // Tagline
+  &__tagline {
+    font-size: $font-size-small;
+    color: $color-foreground-muted;
+    margin-bottom: $space-4;
+    @include truncate(2);
+  }
+
+  // Bottom accent line
+  &__accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ip-color), transparent);
+    opacity: 0.3;
+    transition: opacity $duration-normal ease;
+  }
+
+  &:hover &__accent {
+    opacity: 1;
+  }
+}
+
+// ----------------------------------------
+// FEATURE CARD
+// ----------------------------------------
+
+.feature-card {
+  @include glass-card;
+  padding: $space-8;
+  text-align: center;
+
+  @include respond-to('md') {
+    text-align: left;
+  }
+
+  &__icon {
+    color: $color-accent-cyan;
+    margin-bottom: $space-4;
+
+    @include respond-to('md') {
+      margin-bottom: $space-4;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-h4;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+    margin-bottom: $space-2;
+  }
+
+  &__description {
+    font-size: $font-size-small;
+    color: $color-foreground-muted;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// ----------------------------------------
+// TEAM CARD
+// ----------------------------------------
+
+.team-card {
+  @extend .card;
+  position: relative;
+
+  &:hover {
+    border-color: $color-accent-violet;
+    box-shadow: 0 0 40px rgba($color-accent-violet, 0.15);
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $duration-slow $ease-out-expo;
+    }
+
+    &::after {
+      content: '';
+      @include overlay;
+      background: linear-gradient(
+        to top,
+        $color-background 0%,
+        rgba($color-background, 0.3) 50%,
+        transparent 100%
+      );
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(1.1);
+  }
+
+  &__content {
+    padding: $space-6;
+  }
+
+  &__title {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+    margin-bottom: $space-2;
+    transition: color $duration-normal ease;
+  }
+
+  &:hover &__title {
+    color: $color-accent-violet;
+  }
+
+  &__description {
+    font-size: $font-size-small;
+    color: $color-foreground-muted;
+  }
+}
+
+// ----------------------------------------
+// STAT CARD
+// ----------------------------------------
+
+.stat-card {
+  text-align: center;
+
+  &__value {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: $font-weight-bold;
+    @include text-gradient;
+    margin-bottom: $space-2;
+  }
+
+  &__label {
+    font-size: $font-size-small;
+    color: $color-foreground-muted;
+  }
+}

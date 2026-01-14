@@ -1,0 +1,89 @@
+// ============================================
+// COMPASSIONATE DESIGN - MAIN STYLESHEET
+// ============================================
+//
+// This file imports all SASS partials in the correct order.
+// Use this file for custom builds or when you need full
+// SASS functionality beyond CSS variables.
+//
+// For use with Tailwind, continue using globals.css which
+// references CSS custom properties that mirror these values.
+//
+// ============================================
+
+// ----------------------------------------
+// 1. ABSTRACTS (No output - just tools)
+// ----------------------------------------
+// Variables, functions, and mixins used throughout
+@use 'abstracts' as *;
+
+// ----------------------------------------
+// 2. BASE (Reset, typography, global styles)
+// ----------------------------------------
+@use 'base/typography';
+
+// ----------------------------------------
+// 3. EFFECTS (Visual treatments)
+// ----------------------------------------
+@use 'effects/glass';
+@use 'effects/glows';
+@use 'effects/backgrounds';
+@use 'effects/animations';
+
+// ----------------------------------------
+// 4. COMPONENTS (Reusable UI elements)
+// ----------------------------------------
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/badges';
+@use 'components/forms';
+
+// ----------------------------------------
+// 5. LAYOUT (Page structure)
+// ----------------------------------------
+// @use 'layout/header';
+// @use 'layout/footer';
+// @use 'layout/sections';
+
+// ----------------------------------------
+// CSS CUSTOM PROPERTIES EXPORT
+// ----------------------------------------
+// These mirror SASS variables for use in JS/Tailwind
+
+:root {
+  // Core Colors
+  --background: #{$color-background};
+  --background-secondary: #{$color-background-secondary};
+  --background-tertiary: #{$color-background-tertiary};
+  --foreground: #{$color-foreground};
+  --foreground-muted: #{$color-foreground-muted};
+
+  // Accent Colors
+  --accent-cyan: #{$color-accent-cyan};
+  --accent-magenta: #{$color-accent-magenta};
+  --accent-violet: #{$color-accent-violet};
+  --accent-gold: #{$color-accent-gold};
+  --accent-green: #{$color-accent-green};
+
+  // Glow Effects
+  --glow-cyan: #{$shadow-glow-cyan};
+  --glow-magenta: #{$shadow-glow-magenta};
+  --glow-violet: #{$shadow-glow-violet};
+
+  // Glassmorphism
+  --glass-background: #{$glass-background};
+  --glass-border: #{$glass-border};
+
+  // Gradients
+  --gradient-hero: #{$gradient-hero};
+  --gradient-card: #{$gradient-card};
+
+  // Animation
+  --ease-out-expo: #{$ease-out-expo};
+  --ease-out-quart: #{$ease-out-quart};
+  --ease-in-out-circ: #{$ease-in-out-circ};
+
+  // Layout
+  --section-padding: #{$section-padding};
+  --container-max: #{$container-max};
+}

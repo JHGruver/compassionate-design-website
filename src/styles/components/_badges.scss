@@ -1,0 +1,168 @@
+// ============================================
+// BADGE & PILL COMPONENTS
+// ============================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------
+// BASE BADGE
+// ----------------------------------------
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  border-radius: $border-radius-full;
+  font-size: $font-size-tiny;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// ----------------------------------------
+// BADGE VARIANTS
+// ----------------------------------------
+
+.badge-cyan {
+  background: rgba($color-accent-cyan, 0.15);
+  color: $color-accent-cyan;
+  border: $border-width-thin solid rgba($color-accent-cyan, 0.3);
+}
+
+.badge-magenta {
+  background: rgba($color-accent-magenta, 0.15);
+  color: $color-accent-magenta;
+  border: $border-width-thin solid rgba($color-accent-magenta, 0.3);
+}
+
+.badge-violet {
+  background: rgba($color-accent-violet, 0.15);
+  color: $color-accent-violet;
+  border: $border-width-thin solid rgba($color-accent-violet, 0.3);
+}
+
+.badge-gold {
+  background: rgba($color-accent-gold, 0.15);
+  color: $color-accent-gold;
+  border: $border-width-thin solid rgba($color-accent-gold, 0.3);
+}
+
+.badge-green {
+  background: rgba($color-accent-green, 0.15);
+  color: $color-accent-green;
+  border: $border-width-thin solid rgba($color-accent-green, 0.3);
+}
+
+// ----------------------------------------
+// STATUS BADGES
+// ----------------------------------------
+
+.badge-available {
+  @extend .badge-cyan;
+}
+
+.badge-beta {
+  @extend .badge-violet;
+}
+
+.badge-alpha {
+  @extend .badge-green;
+}
+
+.badge-investment {
+  @extend .badge-magenta;
+}
+
+.badge-concept {
+  @extend .badge-gold;
+}
+
+// ----------------------------------------
+// BADGE SIZES
+// ----------------------------------------
+
+.badge-sm {
+  padding: 0.125rem $space-2;
+  font-size: 0.625rem;
+}
+
+.badge-lg {
+  padding: $space-2 $space-4;
+  font-size: $font-size-small;
+}
+
+// ----------------------------------------
+// BADGE WITH DOT
+// ----------------------------------------
+
+.badge-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: $border-radius-full;
+    background: currentColor;
+  }
+}
+
+// ----------------------------------------
+// CATEGORY PILLS
+// ----------------------------------------
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-2;
+  border-radius: $border-radius-sm;
+  font-size: 0.625rem;
+  font-family: $font-family-mono;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+.pill-sdk {
+  background: rgba($color-accent-cyan, 0.15);
+  color: $color-accent-cyan;
+  border: $border-width-thin solid rgba($color-accent-cyan, 0.3);
+}
+
+.pill-invest {
+  background: rgba($color-accent-magenta, 0.15);
+  color: $color-accent-magenta;
+  border: $border-width-thin solid rgba($color-accent-magenta, 0.3);
+}
+
+// ----------------------------------------
+// FILTER PILLS
+// ----------------------------------------
+
+.filter-pill {
+  @include button-base;
+  padding: $space-2 $space-5;
+  border-radius: $border-radius-full;
+  font-size: $font-size-small;
+  background: transparent;
+  color: $color-foreground;
+  border: $border-width-thin solid $glass-border;
+
+  &:hover:not(.active) {
+    border-color: rgba($color-accent-cyan, 0.5);
+  }
+
+  &.active {
+    background: $color-accent-cyan;
+    color: $color-background;
+    border-color: $color-accent-cyan;
+  }
+
+  // Count indicator
+  span {
+    opacity: 0.6;
+    margin-left: $space-2;
+  }
+}
