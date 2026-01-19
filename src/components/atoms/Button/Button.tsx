@@ -18,11 +18,11 @@ interface ButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-accent-cyan to-accent-magenta text-background font-semibold hover:opacity-90",
+    "bg-gradient-to-r from-accent-cyan to-accent-magenta text-background font-semibold hover:opacity-90 border-2 border-transparent",
   secondary:
-    "bg-background-tertiary text-foreground border border-glass-border hover:border-accent-cyan hover:text-accent-cyan",
+    "bg-background-tertiary text-foreground border-2 border-glass-border hover:border-accent-cyan hover:text-accent-cyan",
   ghost:
-    "bg-transparent text-foreground hover:text-accent-cyan hover:bg-background-secondary",
+    "bg-transparent text-foreground hover:text-accent-cyan hover:bg-background-secondary border-2 border-transparent",
   outline:
     "bg-transparent border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background",
 };
