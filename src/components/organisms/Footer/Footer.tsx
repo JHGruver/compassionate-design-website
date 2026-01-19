@@ -15,9 +15,9 @@ const footerLinks = {
     { label: "Investors", href: "/investors" },
   ],
   connect: [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Twitter", href: "https://twitter.com" },
-    { label: "GitHub", href: "https://github.com" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/compassionate-design/" },
+    { label: "Portfolio", href: "https://www.jacobgruver.com" },
+    { label: "GitHub", href: "https://github.com/JHGruver" },
   ],
 };
 
