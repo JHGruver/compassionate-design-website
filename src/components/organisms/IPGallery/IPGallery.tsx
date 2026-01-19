@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
 import { ips, getSDKProducts, getInvestmentIPs } from "@/data/products";
@@ -163,9 +164,12 @@ export function IPGallery() {
           <p className="text-foreground-muted mb-6">
             Interested in our full portfolio?
           </p>
-          <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-accent-magenta to-accent-violet text-white font-bold hover:opacity-90 transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+          <Link
+            href="/investors"
+            className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-accent-magenta to-accent-violet text-white font-bold hover:opacity-90 transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]"
+          >
             Request Investor Package
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

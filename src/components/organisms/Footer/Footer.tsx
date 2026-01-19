@@ -6,14 +6,13 @@ import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
 
 const footerLinks = {
   products: [
-    { label: "All Products", href: "#products" },
-    { label: "Featured", href: "#featured" },
-    { label: "New Releases", href: "#new" },
+    { label: "All Products", href: "#portfolio" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
   ],
   company: [
     { label: "About", href: "#about" },
-    { label: "Team", href: "#team" },
-    { label: "Careers", href: "#careers" },
+    { label: "Investors", href: "/investors" },
   ],
   connect: [
     { label: "LinkedIn", href: "https://linkedin.com" },

@@ -4,18 +4,56 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
 import { Button } from "@/components/atoms/Button";
-import { MailIcon, LinkedInIcon } from "@/components/atoms/Icon";
+import { MailIcon, LinkedInIcon, MediumIcon } from "@/components/atoms/Icon";
+
+// ConvertKit form configuration
+// To set up: Create a form at convertkit.com, get your form ID from the form's embed code
+const CONVERTKIT_FORM_ID = process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID || "";
 
 export function Contact() {
   const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setEmail("");
+
+    if (!CONVERTKIT_FORM_ID) {
+      // Fallback behavior when ConvertKit is not configured
+      setStatus("success");
+      setTimeout(() => setStatus("idle"), 3000);
+      setEmail("");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(
+        `https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
+            email,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        throw new Error("Subscription failed");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -51,7 +89,7 @@ export function Contact() {
 
         {/* Contact Options */}
         <motion.div
-          className="grid md:grid-cols-2 gap-6 mb-16"
+          className="grid md:grid-cols-3 gap-6 mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,7 +111,25 @@ export function Contact() {
             </p>
           </a>
 
-          {/* Social */}
+          {/* Medium Blog */}
+          <a
+            href="https://medium.com/@jgruver"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group glass rounded-2xl p-8 text-left hover:border-accent-gold transition-all duration-300"
+          >
+            <div className="text-accent-gold mb-4">
+              <MediumIcon size={32} />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent-gold transition-colors">
+              Read Our Blog
+            </h3>
+            <p className="text-foreground-muted text-sm">
+              Thoughts on design, tech & building products
+            </p>
+          </a>
+
+          {/* LinkedIn */}
           <a
             href="https://linkedin.com"
             target="_blank"
@@ -115,12 +171,24 @@ export function Contact() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="flex-1 px-6 py-4 rounded-lg bg-background border border-glass-border text-foreground placeholder:text-foreground-muted focus:outline-none focus:border-accent-cyan transition-colors"
+              disabled={status === "loading" || status === "success"}
+              className="flex-1 px-6 py-4 rounded-lg bg-background border border-glass-border text-foreground placeholder:text-foreground-muted focus:outline-none focus:border-accent-cyan transition-colors disabled:opacity-50"
             />
-            <Button type="submit" size="lg" disabled={isSubmitted}>
-              {isSubmitted ? "Subscribed!" : "Subscribe"}
+            <Button type="submit" size="lg" disabled={status === "loading" || status === "success"}>
+              {status === "loading" && "Subscribing..."}
+              {status === "success" && "Subscribed!"}
+              {status === "error" && "Try Again"}
+              {status === "idle" && "Subscribe"}
             </Button>
           </form>
+
+          {status === "error" && errorMessage && (
+            <p className="text-sm text-red-400 mt-4">{errorMessage}</p>
+          )}
+
+          {status === "success" && (
+            <p className="text-sm text-accent-cyan mt-4">Welcome to the inner circle!</p>
+          )}
 
           <p className="text-xs text-foreground-muted mt-4">
             No spam. Unsubscribe anytime. We respect your inbox.

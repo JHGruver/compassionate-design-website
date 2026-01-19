@@ -236,6 +236,32 @@ export function HeartTechIcon({ className = "", size = 24 }: IconProps) {
   );
 }
 
+export function MediumIcon({ className = "", size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M13.54 12C13.54 15.47 10.77 18.28 7.27 18.28C3.77 18.28 1 15.47 1 12C1 8.53 3.77 5.72 7.27 5.72C10.77 5.72 13.54 8.53 13.54 12Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.96 12C20.96 15.24 19.57 17.87 17.83 17.87C16.09 17.87 14.7 15.24 14.7 12C14.7 8.76 16.09 6.13 17.83 6.13C19.57 6.13 20.96 8.76 20.96 12Z"
+        fill="currentColor"
+      />
+      <path
+        d="M23 12C23 14.9 22.57 17.25 22.05 17.25C21.53 17.25 21.1 14.9 21.1 12C21.1 9.1 21.53 6.75 22.05 6.75C22.57 6.75 23 9.1 23 12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 const Icons = {
   SparkleIcon,
   DiamondIcon,
@@ -245,6 +271,7 @@ const Icons = {
   CraftIcon,
   VisionIcon,
   HeartTechIcon,
+  MediumIcon,
 };
 
 export default Icons;

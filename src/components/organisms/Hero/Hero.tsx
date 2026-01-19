@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/atoms/Button";
 import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
+import { scrollToSection } from "@/lib/scroll";
 
 // Dynamic import for 3D scene to avoid SSR issues
 const Scene3D = dynamic(
@@ -24,6 +25,7 @@ export function Hero() {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
       className="relative min-h-screen flex items-center overflow-hidden"
     >
@@ -66,10 +68,10 @@ export function Hero() {
 
           <AnimatedContainer animation="fadeInUp" delay={0.3}>
             <div className="flex flex-col sm:flex-row items-start gap-3">
-              <Button size="md" glowEffect>
+              <Button size="md" glowEffect onClick={() => scrollToSection("portfolio")}>
                 Explore Products
               </Button>
-              <Button variant="outline" size="md">
+              <Button variant="outline" size="md" onClick={() => scrollToSection("about")}>
                 Learn More
               </Button>
             </div>

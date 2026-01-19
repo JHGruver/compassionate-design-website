@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/atoms/Button";
+import { scrollToSection } from "@/lib/scroll";
 
 const navLinks = [
-  { href: "#products", label: "Products" },
+  { href: "#portfolio", label: "Products" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -60,7 +61,7 @@ export function Header() {
               />
             </Link>
           ))}
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" onClick={() => scrollToSection("contact")}>
             Get Started
           </Button>
         </div>
@@ -123,7 +124,9 @@ export function Header() {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.3 }}
               >
-                <Button size="lg">Get Started</Button>
+                <Button size="lg" onClick={() => { scrollToSection("contact"); setIsMobileMenuOpen(false); }}>
+                  Get Started
+                </Button>
               </motion.div>
             </motion.div>
           )}

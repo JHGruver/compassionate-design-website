@@ -7,4 +7,5 @@ export {
   CraftIcon,
   VisionIcon,
   HeartTechIcon,
+  MediumIcon,
 } from "./Icon";
