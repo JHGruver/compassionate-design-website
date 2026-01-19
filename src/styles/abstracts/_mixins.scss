@@ -2,6 +2,9 @@
 // COMPASSIONATE DESIGN - SASS MIXINS
 // ============================================
 
+@use 'sass:map';
+@use 'sass:string';
+@use 'sass:math';
 @use 'variables' as *;
 
 // ----------------------------------------
@@ -11,8 +14,8 @@
 /// Respond to breakpoint (mobile-first)
 /// @param {String} $breakpoint - Breakpoint name from $breakpoints map
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
@@ -23,8 +26,8 @@
 /// Respond below breakpoint (desktop-first)
 /// @param {String} $breakpoint - Breakpoint name from $breakpoints map
 @mixin respond-below($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: #{map-get($breakpoints, $breakpoint) - 1px}) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map.get($breakpoints, $breakpoint) - 1px}) {
       @content;
     }
   }
@@ -83,9 +86,9 @@
 /// Pulsing glow animation
 /// @param {Color} $color - Glow color
 @mixin pulse-glow($color) {
-  animation: pulse-glow-#{unique-id()} 2s ease-in-out infinite;
+  animation: pulse-glow-#{string.unique-id()} 2s ease-in-out infinite;
 
-  @keyframes pulse-glow-#{unique-id()} {
+  @keyframes pulse-glow-#{string.unique-id()} {
     0%, 100% {
       box-shadow: 0 0 20px rgba($color, 0.4);
     }
@@ -331,7 +334,7 @@
 
   &::-webkit-scrollbar-thumb {
     background: $color-background-tertiary;
-    border-radius: $width / 2;
+    border-radius: math.div($width, 2);
 
     &:hover {
       background: $color-accent-cyan;

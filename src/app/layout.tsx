@@ -14,6 +14,7 @@ import {
   Anton,
 } from "next/font/google";
 import { LayoutWrapper } from "@/components/organisms/LayoutWrapper";
+import "@/styles/main.scss";
 import "./globals.css";
 
 const geistSans = Geist({

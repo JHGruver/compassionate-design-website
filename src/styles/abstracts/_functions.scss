@@ -198,5 +198,11 @@
 /// @param {Number} $max - Maximum value
 /// @return {Number}
 @function clamp-value($value, $min, $max) {
-  @return if($value < $min, $min, if($value > $max, $max, $value));
+  @if $value < $min {
+    @return $min;
+  } @else if $value > $max {
+    @return $max;
+  } @else {
+    @return $value;
+  }
 }
