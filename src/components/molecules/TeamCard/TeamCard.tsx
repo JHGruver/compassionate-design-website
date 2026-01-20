@@ -103,6 +103,11 @@ const MemberCard = ({
 export function TeamCard({ division, index }: TeamCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Calculate the expanded height based on number of members
+  // Each member card ~160px + 16px gap + padding
+  const baseHeight = 280; // Default aspect-[4/3] height approximation
+  const expandedHeight = Math.max(baseHeight, division.members.length * 175 + 120);
+
   return (
     <motion.div
       className="group relative"
@@ -117,16 +122,25 @@ export function TeamCard({ division, index }: TeamCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        className="relative overflow-hidden rounded-2xl transition-all duration-500"
+      <motion.div
+        className="relative overflow-hidden rounded-2xl"
+        animate={{
+          boxShadow: isHovered ? `0 0 60px ${division.color}25` : "none",
+        }}
+        transition={{ duration: 0.4 }}
         style={{
           background: "rgba(255, 255, 255, 0.02)",
           border: `1px solid ${isHovered ? division.color : "rgba(255,255,255,0.08)"}`,
-          boxShadow: isHovered ? `0 0 60px ${division.color}25` : "none",
         }}
       >
-        {/* Image */}
-        <div className="relative aspect-[4/3] overflow-hidden">
+        {/* Image Container - animates height on hover */}
+        <motion.div
+          className="relative overflow-hidden"
+          animate={{
+            height: isHovered ? expandedHeight : baseHeight,
+          }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
           <Image
             src={division.image}
             alt={division.title}
@@ -134,7 +148,7 @@ export function TeamCard({ division, index }: TeamCardProps) {
             className="object-cover transition-all duration-700"
             style={{
               transform: isHovered ? "scale(1.1)" : "scale(1)",
-              filter: isHovered ? "brightness(0.4)" : "brightness(1)",
+              filter: isHovered ? "brightness(0.3)" : "brightness(1)",
             }}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
@@ -143,20 +157,59 @@ export function TeamCard({ division, index }: TeamCardProps) {
           <div
             className="absolute inset-0 transition-opacity duration-500"
             style={{
-              background: `linear-gradient(to top, #0A0A0F 0%, rgba(10,10,15,0.5) 50%, transparent 100%)`,
+              background: `linear-gradient(to top, #0A0A0F 0%, rgba(10,10,15,0.7) 50%, rgba(10,10,15,0.3) 100%)`,
               opacity: isHovered ? 1 : 0.8,
             }}
           />
 
-          {/* Hover overlay with member cards */}
+          {/* Default content - visible when not hovered */}
+          <motion.div
+            className="absolute bottom-0 left-0 right-0 p-6"
+            animate={{
+              opacity: isHovered ? 0 : 1,
+              y: isHovered ? 20 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <h4
+              className="text-xl font-bold mb-2"
+              style={{ color: "#F5F5F5" }}
+            >
+              {division.title}
+            </h4>
+            <p className="text-foreground-muted text-sm">
+              {division.description}
+            </p>
+          </motion.div>
+
+          {/* Hover content - member cards */}
           <AnimatePresence>
             {isHovered && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 p-4 flex flex-col justify-center"
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 p-5 flex flex-col"
               >
+                {/* Division title at top when hovered */}
+                <motion.div
+                  className="mb-4"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <h4
+                    className="text-lg font-bold"
+                    style={{ color: division.color }}
+                  >
+                    {division.title}
+                  </h4>
+                  <p className="text-xs text-white/50">
+                    {division.members.length} Operatives
+                  </p>
+                </motion.div>
+
                 {/* Scanline effect */}
                 <div
                   className="absolute inset-0 pointer-events-none opacity-10"
@@ -166,7 +219,7 @@ export function TeamCard({ division, index }: TeamCardProps) {
                 />
 
                 {/* Member cards container */}
-                <div className="relative z-10 space-y-3 max-h-full overflow-hidden">
+                <div className="relative z-10 space-y-3 flex-1">
                   {division.members.map((member, i) => (
                     <MemberCard
                       key={member.name}
@@ -222,64 +275,17 @@ export function TeamCard({ division, index }: TeamCardProps) {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Division badge - slides up on hover */}
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 p-6"
-            animate={{
-              y: isHovered ? 100 : 0,
-              opacity: isHovered ? 0 : 1,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <h4
-              className="text-xl font-bold mb-2 transition-colors"
-              style={{ color: isHovered ? division.color : "#F5F5F5" }}
-            >
-              {division.title}
-            </h4>
-            <p className="text-foreground-muted text-sm">
-              {division.description}
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Bottom info bar - visible on hover */}
-        <motion.div
-          className="px-4 py-3 flex items-center justify-between"
-          style={{
-            background: `linear-gradient(90deg, ${division.color}15, transparent)`,
-            borderTop: `1px solid ${division.color}30`,
-          }}
-          animate={{
-            opacity: isHovered ? 1 : 0,
-            height: isHovered ? "auto" : 0,
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="flex items-center gap-2">
-            <div
-              className="w-2 h-2 rounded-full animate-pulse"
-              style={{ backgroundColor: division.color }}
-            />
-            <span className="text-xs font-mono uppercase tracking-wider" style={{ color: division.color }}>
-              {division.members.length} Operatives
-            </span>
-          </div>
-          <span className="text-[10px] text-foreground-muted uppercase tracking-widest">
-            Hover for intel
-          </span>
         </motion.div>
 
         {/* Accent line at bottom */}
         <div
-          className="h-[2px] transition-opacity duration-500"
+          className="h-[2px] transition-all duration-500"
           style={{
             background: `linear-gradient(90deg, transparent, ${division.color}, transparent)`,
             opacity: isHovered ? 1 : 0.3,
           }}
         />
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

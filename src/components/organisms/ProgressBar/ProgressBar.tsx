@@ -1,52 +1,51 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const sections = [
-  { id: "hero", label: "Home", color: "var(--accent-cyan)" },
-  { id: "portfolio", label: "Portfolio", color: "var(--accent-cyan)" },
-  { id: "services", label: "Services", color: "var(--accent-magenta)" },
-  { id: "about", label: "About", color: "var(--accent-violet)" },
-  { id: "contact", label: "Contact", color: "var(--accent-gold)" },
+  { id: "hero", label: "Home" },
+  { id: "portfolio", label: "Work" },
+  { id: "services", label: "Services" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function ProgressBar() {
   const [activeSection, setActiveSection] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.scrollY;
+
+    // Show after scrolling past hero
+    setIsVisible(scrollTop > 200);
+
+    // Determine active section
+    const sectionElements = sections.map((s) => {
+      if (s.id === "hero") {
+        return { id: s.id, top: 0 };
+      }
+      const el = document.getElementById(s.id);
+      return { id: s.id, top: el?.offsetTop ?? Infinity };
+    });
+
+    const currentScroll = scrollTop + window.innerHeight / 3;
+
+    for (let i = sectionElements.length - 1; i >= 0; i--) {
+      if (currentScroll >= sectionElements[i].top) {
+        setActiveSection(i);
+        break;
+      }
+    }
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate overall scroll progress
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setScrollProgress(progress);
-
-      // Determine active section
-      const sectionElements = sections.map((s) => {
-        if (s.id === "hero") {
-          return { id: s.id, top: 0 };
-        }
-        const el = document.getElementById(s.id);
-        return { id: s.id, top: el?.offsetTop ?? Infinity };
-      });
-
-      const currentScroll = scrollTop + window.innerHeight / 3;
-
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        if (currentScroll >= sectionElements[i].top) {
-          setActiveSection(i);
-          break;
-        }
-      }
-    };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === "hero") {
@@ -60,90 +59,115 @@ export function ProgressBar() {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-1">
-      {/* Progress Track */}
-      <div className="relative flex flex-col items-center">
-        {/* Background Track */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-[2px] h-full bg-glass-border rounded-full" />
+    <AnimatePresence>
+      {isVisible && (
+        <motion.nav
+          className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          aria-label="Page navigation"
+        >
+          <div className="relative flex flex-col items-end gap-6">
+            {/* Vertical line connector */}
+            <div
+              className="absolute right-[5px] top-3 bottom-3 w-px"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+            />
 
-        {/* Active Progress Fill */}
-        <motion.div
-          className="absolute left-1/2 -translate-x-1/2 w-[2px] rounded-full origin-top"
-          style={{
-            background: `linear-gradient(180deg, var(--accent-cyan) 0%, var(--accent-magenta) 50%, var(--accent-gold) 100%)`,
-            top: 0,
-          }}
-          animate={{
-            height: `${scrollProgress}%`,
-          }}
-          transition={{ duration: 0.1, ease: "linear" }}
-        />
+            {/* Progress fill */}
+            <motion.div
+              className="absolute right-[5px] top-3 w-px origin-top"
+              style={{
+                backgroundColor: "rgba(0, 212, 255, 0.6)",
+              }}
+              animate={{
+                height: `${(activeSection / (sections.length - 1)) * 100}%`,
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            />
 
-        {/* Section Markers */}
-        <div className="relative flex flex-col gap-8 py-4">
-          {sections.map((section, index) => {
-            const isActive = index === activeSection;
-            const isPast = index < activeSection;
+            {sections.map((section, index) => {
+              const isActive = index === activeSection;
+              const isPast = index < activeSection;
 
-            return (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className="group relative flex items-center"
-                aria-label={`Scroll to ${section.label}`}
-              >
-                {/* Dot */}
-                <motion.div
-                  className="relative z-10 rounded-full transition-all duration-300"
-                  style={{
-                    width: isActive ? 14 : 8,
-                    height: isActive ? 14 : 8,
-                    backgroundColor: isActive || isPast ? section.color : "var(--glass-border)",
-                    boxShadow: isActive ? `0 0 20px ${section.color}` : "none",
-                  }}
-                  whileHover={{ scale: 1.3 }}
-                />
-
-                {/* Label - appears on hover */}
-                <motion.span
-                  className="absolute right-8 whitespace-nowrap text-sm font-medium px-3 py-1.5 rounded-lg glass opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-                  style={{
-                    color: isActive ? section.color : "var(--foreground-muted)",
-                  }}
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className="group relative flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full"
+                  aria-label={`Navigate to ${section.label}`}
+                  aria-current={isActive ? "true" : undefined}
                 >
-                  {section.label}
-                </motion.span>
-
-                {/* Active Indicator Ring */}
-                {isActive && (
-                  <motion.div
-                    className="absolute rounded-full border-2"
-                    style={{
-                      width: 24,
-                      height: 24,
-                      left: -5,
-                      top: -5,
-                      borderColor: section.color,
+                  {/* Label */}
+                  <motion.span
+                    className="text-xs font-medium tracking-wide uppercase"
+                    animate={{
+                      opacity: isHovered ? 1 : 0,
+                      x: isHovered ? 0 : 8,
                     }}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.5 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      color: isActive
+                        ? "rgba(0, 212, 255, 1)"
+                        : isPast
+                          ? "rgba(255, 255, 255, 0.7)"
+                          : "rgba(255, 255, 255, 0.4)",
+                    }}
+                  >
+                    {section.label}
+                  </motion.span>
 
-      {/* Scroll Percentage */}
-      <motion.div
-        className="mt-4 text-xs font-mono text-foreground-muted"
-        animate={{ opacity: scrollProgress > 5 ? 1 : 0 }}
-      >
-        {Math.round(scrollProgress)}%
-      </motion.div>
-    </div>
+                  {/* Dot indicator */}
+                  <div className="relative">
+                    <motion.div
+                      className="rounded-full transition-colors duration-300"
+                      style={{
+                        width: 11,
+                        height: 11,
+                        backgroundColor: isActive
+                          ? "rgba(0, 212, 255, 1)"
+                          : isPast
+                            ? "rgba(0, 212, 255, 0.5)"
+                            : "rgba(255, 255, 255, 0.15)",
+                        boxShadow: isActive
+                          ? "0 0 12px rgba(0, 212, 255, 0.6)"
+                          : "none",
+                      }}
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.15 }}
+                    />
+
+                    {/* Active pulse ring */}
+                    {isActive && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          border: "1px solid rgba(0, 212, 255, 0.4)",
+                        }}
+                        initial={{ scale: 1, opacity: 0.8 }}
+                        animate={{
+                          scale: [1, 1.8, 1.8],
+                          opacity: [0.8, 0, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeOut",
+                        }}
+                      />
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 }
 

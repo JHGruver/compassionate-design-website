@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
 import { CaseStudyCard } from "./CaseStudyCard";
+import { CaseStudyModal } from "./CaseStudyModal";
 import { ServiceTier } from "./ServiceTier";
 import { TestimonialSlider } from "./TestimonialSlider";
 import {
@@ -11,9 +13,18 @@ import {
   serviceTiers,
   testimonials,
   metrics,
+  CaseStudy,
 } from "@/data/services";
 
 export function ServicesShowcase() {
+  const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+  const [modalAccentColor, setModalAccentColor] = useState("#F59E0B");
+
+  const handleSelectStudy = (study: CaseStudy, accentColor: string = "#F59E0B") => {
+    setSelectedStudy(study);
+    setModalAccentColor(accentColor);
+  };
+
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -138,9 +149,14 @@ export function ServicesShowcase() {
             </div>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => (
-              <CaseStudyCard key={study.id} study={study} index={index} />
+              <CaseStudyCard
+                key={study.id}
+                study={study}
+                index={index}
+                onSelect={(s) => handleSelectStudy(s, "#F59E0B")}
+              />
             ))}
           </div>
         </div>
@@ -172,13 +188,14 @@ export function ServicesShowcase() {
             </div>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {portfolioSites.map((site, index) => (
               <CaseStudyCard
                 key={site.id}
                 study={site}
                 index={index}
                 accentColor="#00D4FF"
+                onSelect={(s) => handleSelectStudy(s, "#00D4FF")}
               />
             ))}
           </div>
@@ -273,6 +290,14 @@ export function ServicesShowcase() {
           </button>
         </motion.div>
       </div>
+
+      {/* Case Study Modal */}
+      <CaseStudyModal
+        study={selectedStudy}
+        isOpen={selectedStudy !== null}
+        onClose={() => setSelectedStudy(null)}
+        accentColor={modalAccentColor}
+      />
     </section>
   );
 }

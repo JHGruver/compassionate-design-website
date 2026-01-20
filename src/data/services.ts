@@ -89,7 +89,7 @@ export const portfolioSites: CaseStudy[] = [
     project: "Personal Portfolio",
     description:
       "A modern, data-driven design portfolio featuring multiple selectable themes, metrics-heavy presentation, and a playful technical aesthetic. Showcases 11+ years of UX/UI experience across automotive, aerospace, healthcare, and AI sectors.",
-    image: "/images/portfolio/jacobgruver.jpg",
+    image: "/images/portfolio/jacobgruver.png",
     tags: ["Portfolio", "Multi-Theme", "Personal Brand"],
     results: "13+ featured projects",
     link: "https://www.jacobgruver.com",
@@ -101,34 +101,10 @@ export const portfolioSites: CaseStudy[] = [
     project: "Wellness Platform",
     description:
       "A multi-platform wellness application dedicated to natural health through herbs and spices. Features a searchable database, health benefits, recipes, and educational content on ancestral wellness practices.",
-    image: "/images/portfolio/spicecraft.jpg",
+    image: "/images/portfolio/spicecraft.png",
     tags: ["Wellness", "Web App", "Cross-Platform"],
     results: "4.8 star rating",
     link: "https://www.spicecraft.world",
-    isPortfolio: true,
-  },
-  {
-    id: "lux-markets",
-    client: "Lux Markets",
-    project: "Luxury Marketplace",
-    description:
-      "A dark luxury aesthetic dashboard for a premium marketplace connecting properties with CPG brands. Features gold accents, sophisticated typography, and smooth hover interactions with a card-based layout.",
-    image: "/images/portfolio/luxmarkets.jpg",
-    tags: ["Luxury", "Dashboard", "B2B"],
-    results: "7 homepage variations",
-    link: "https://www.luxmarketsbyjacob.org",
-    isPortfolio: true,
-  },
-  {
-    id: "42robots",
-    client: "42Robots AI",
-    project: "Enterprise AI Platform",
-    description:
-      "A modern B2B SaaS marketing website for AI-powered business solutions. Dark-themed corporate aesthetic with clean typography, visual feature demos, and metrics-driven testimonials.",
-    image: "/images/portfolio/42robots.jpg",
-    tags: ["AI/ML", "Enterprise", "SaaS"],
-    results: "60% faster deployment",
-    link: "https://www.42robots.ai",
     isPortfolio: true,
   },
   {
@@ -137,10 +113,46 @@ export const portfolioSites: CaseStudy[] = [
     project: "Knowledge Management App",
     description:
       "A retro-futuristic arcade aesthetic SaaS landing page with vibrant neon colors, glassmorphism, animated gamified interactions, Easter eggs, and a 'Nitro Mode' with intense visual effects.",
-    image: "/images/portfolio/hk3k.jpg",
+    image: "/images/portfolio/hk3k.png",
     tags: ["SaaS", "Gamified", "AI"],
     results: "Waitlist launch",
     link: "https://www.hk3k.ai",
+    isPortfolio: true,
+  },
+  {
+    id: "42robots",
+    client: "42Robots AI",
+    project: "Enterprise AI Platform",
+    description:
+      "A modern B2B SaaS marketing website for AI-powered business solutions. Dark-themed corporate aesthetic with clean typography, visual feature demos, and metrics-driven testimonials.",
+    image: "/images/portfolio/42robots.png",
+    tags: ["AI/ML", "Enterprise", "SaaS"],
+    results: "60% faster deployment",
+    link: "https://www.42robots.ai",
+    isPortfolio: true,
+  },
+  {
+    id: "lux-markets",
+    client: "Lux Markets",
+    project: "Luxury Marketplace",
+    description:
+      "A dark luxury aesthetic dashboard for a premium marketplace connecting properties with CPG brands. Features gold accents, sophisticated typography, and smooth hover interactions with a card-based layout.",
+    image: "/images/portfolio/luxmarkets.png",
+    tags: ["Luxury", "Dashboard", "B2B"],
+    results: "7 homepage variations",
+    link: "https://www.luxmarketsbyjacob.org",
+    isPortfolio: true,
+  },
+  {
+    id: "paralogic-presents",
+    client: "Paralogic Presents",
+    project: "Event Promotion Website",
+    description:
+      "An elegant event promotion website featuring exclusive meet-and-greet experiences with Emmy and Golden Globe-winning actor Bruce Davison. Showcases film screenings, art gallery exhibitions, Q&A sessions, and fan interactions with a refined, sophisticated design.",
+    image: "/images/portfolio/paralogic.png",
+    tags: ["Events", "Entertainment", "Marketing"],
+    results: "3-day event launch",
+    link: "https://www.paralogicpresents.com",
     isPortfolio: true,
   },
 ];
