@@ -31,9 +31,10 @@ export function About() {
 
           <AnimatedContainer animation="fadeInUp" delay={0.2}>
             <p className="text-xl text-foreground-muted max-w-3xl mx-auto leading-relaxed">
-              We spent 200 hours on a button most teams ship in minutes. That&apos;s
-              not inefficiency—that&apos;s obsessive craft. Every interaction,
-              every pixel, every line of code is infused with intention.
+              We design for humans, not stakeholders. While others optimize for
+              sign-offs and deliverables, we advocate for the people actually
+              using the product. Every decision is tested against one question:
+              does this make someone&apos;s life better?
             </p>
           </AnimatedContainer>
 
@@ -46,10 +47,10 @@ export function About() {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             {[
-              { value: "200+", label: "Hours per feature" },
+              { value: "100%", label: "User-tested designs" },
               { value: "6", label: "Products in development" },
-              { value: "∞", label: "Attention to detail" },
-              { value: "1", label: "Mission: Make it magical" },
+              { value: "0", label: "Assumptions shipped" },
+              { value: "1", label: "Priority: The human" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
