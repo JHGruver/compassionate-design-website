@@ -8,6 +8,7 @@ export interface CaseStudy {
   project: string;
   description: string;
   image: string;
+  comparisonImage?: string; // Original/competitor design for before/after comparison
   tags: string[];
   results?: string;
   link?: string;
@@ -41,6 +42,15 @@ export interface Metric {
   isPlaceholder?: boolean;
 }
 
+export interface OngoingService {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+}
+
 // ============================================
 // CASE STUDIES
 // ============================================
@@ -53,6 +63,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Modernized the authentication experience for one of the world's largest wealth management firms. Streamlined the login flow while maintaining enterprise security standards.",
     image: "/images/misc/sign-in-redesign.jpg",
+    comparisonImage: "/images/portfolio/merrill.png",
     tags: ["Financial Services", "Authentication", "Enterprise"],
     results: "Reduced login friction by 40%",
   },
@@ -63,6 +74,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Transformed the trading platform's dashboard with a contemporary design language. Enhanced data visualization and improved user navigation patterns.",
     image: "/images/misc/updated-design.jpg",
+    comparisonImage: "/images/portfolio/schwab.png",
     tags: ["Financial Services", "Dashboard", "Data Viz"],
     results: "Increased user engagement 2.5x",
   },
@@ -73,6 +85,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Complete product redesign from legacy interface to modern, responsive platform. Built a scalable design system for future growth.",
     image: "/images/misc/desktop-design.jpg",
+    comparisonImage: "/images/portfolio/risingteam.png",
     tags: ["SaaS", "Full Redesign", "Design System"],
     results: "60% reduction in support tickets",
   },
@@ -163,53 +176,118 @@ export const portfolioSites: CaseStudy[] = [
 
 export const serviceTiers: ServiceTier[] = [
   {
-    id: "audit",
-    name: "Audit",
-    price: "Free",
-    priceNote: "No obligation",
-    description: "Comprehensive review of your current product with actionable recommendations.",
+    id: "hourly",
+    name: "Hourly",
+    price: "$75/hr",
+    priceNote: "Simple projects",
+    description: "Perfect for landing pages, small websites, and quick design tasks.",
     features: [
-      "UX/UI assessment report",
-      "Performance analysis",
-      "Accessibility review",
-      "Competitor comparison",
-      "Priority recommendations",
+      "Landing pages & microsites",
+      "Simple business websites",
+      "UI touch-ups & tweaks",
+      "Quick turnaround",
+      "Pay only for what you need",
+      "No long-term commitment",
     ],
-    ctaText: "Get Free Audit",
+    ctaText: "Start a Project",
   },
   {
-    id: "refresh",
-    name: "Refresh",
-    price: "Starting at $5k",
-    priceNote: "Per project",
-    description: "Targeted updates to breathe new life into your existing product.",
+    id: "starter",
+    name: "Starter",
+    price: "Starting at $3k",
+    priceNote: "Full project",
+    description: "Complete website or app design with a polished, professional result.",
     features: [
-      "Everything in Audit",
-      "UI component updates",
-      "Single feature redesign",
+      "Free discovery call",
+      "Full website design",
+      "Mobile responsive",
       "Design file delivery",
       "Developer handoff docs",
       "2 revision rounds",
     ],
     highlighted: true,
-    ctaText: "Start Refresh",
+    ctaText: "Get Started",
   },
   {
-    id: "transform",
-    name: "Transform",
+    id: "enterprise",
+    name: "Enterprise",
     price: "Custom",
     priceNote: "Ongoing partnership",
-    description: "Full redesign with ongoing support to keep your product evolving.",
+    description: "Full redesign with design systems and ongoing support.",
     features: [
-      "Everything in Refresh",
+      "Free UX/UI audit",
       "Complete redesign",
       "Design system creation",
-      "Prototype & testing",
+      "Prototype & user testing",
       "Implementation support",
       "Monthly maintenance",
       "Priority support",
     ],
-    ctaText: "Discuss Project",
+    ctaText: "Schedule a Call",
+  },
+];
+
+// ============================================
+// ONGOING SERVICES
+// ============================================
+
+export const ongoingServices: OngoingService[] = [
+  {
+    id: "domain",
+    name: "Domain Registration",
+    price: "$35",
+    period: "per year",
+    description: "Secure your perfect domain name with full DNS management.",
+    features: [
+      "Domain registration & renewal",
+      "DNS management",
+      "Domain privacy protection",
+      "Email forwarding setup",
+    ],
+  },
+  {
+    id: "hosting",
+    name: "Website Hosting",
+    price: "$49",
+    period: "per month",
+    description: "Fast, reliable hosting with SSL and daily backups.",
+    features: [
+      "High-performance hosting",
+      "Free SSL certificate",
+      "Daily backups",
+      "99.9% uptime guarantee",
+      "CDN included",
+    ],
+  },
+  {
+    id: "maintenance",
+    name: "Maintenance & Updates",
+    price: "$149",
+    period: "per month",
+    description: "Keep your site fresh, secure, and running smoothly.",
+    features: [
+      "Monthly content updates",
+      "Security patches",
+      "Performance monitoring",
+      "Bug fixes",
+      "Priority email support",
+      "2 hours of updates included",
+    ],
+  },
+  {
+    id: "bundle",
+    name: "Complete Care",
+    price: "$199",
+    period: "per month",
+    description: "All-inclusive package: hosting, maintenance, and peace of mind.",
+    features: [
+      "Everything in Hosting",
+      "Everything in Maintenance",
+      "Domain renewal included",
+      "Monthly analytics reports",
+      "Priority support",
+      "4 hours of updates included",
+    ],
   },
 ];
 

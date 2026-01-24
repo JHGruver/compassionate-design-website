@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/atoms/Button";
 import { scrollToSection } from "@/lib/scroll";
@@ -35,12 +36,23 @@ export function Header() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative z-10">
+        <Link href="/" className="relative z-[1001]">
           <motion.div
-            className="text-2xl font-bold gradient-text"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
           >
-            Compassionate Design
+            <div className="relative w-9 h-9 rounded-lg overflow-hidden">
+              <Image
+                src="/images/logos/compassionate-design-icon.png"
+                alt="Compassionate Design"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <span className="text-2xl font-bold gradient-text">
+              Compassionate Design
+            </span>
           </motion.div>
         </Link>
 

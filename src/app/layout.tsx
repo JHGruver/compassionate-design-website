@@ -101,6 +101,11 @@ export const metadata: Metadata = {
     "user experience",
   ],
   authors: [{ name: "Compassionate Design LLC" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Compassionate Design | Design That Gives a Damn",
     description:

@@ -5,12 +5,15 @@ import { motion } from "framer-motion";
 import { AnimatedContainer } from "@/components/atoms/AnimatedContainer";
 import { CaseStudyCard } from "./CaseStudyCard";
 import { CaseStudyModal } from "./CaseStudyModal";
+import { ComparisonCard } from "./ComparisonCard";
 import { ServiceTier } from "./ServiceTier";
+import { OngoingServices } from "./OngoingServices";
 import { TestimonialSlider } from "./TestimonialSlider";
 import {
   caseStudies,
   portfolioSites,
   serviceTiers,
+  ongoingServices,
   testimonials,
   metrics,
   CaseStudy,
@@ -122,7 +125,7 @@ export function ServicesShowcase() {
           ))}
         </motion.div>
 
-        {/* Case Studies */}
+        {/* Case Studies - Before/After Comparisons */}
         <div className="mb-24">
           <AnimatedContainer animation="fadeInUp" className="mb-10">
             <div className="flex items-center gap-4">
@@ -136,7 +139,7 @@ export function ServicesShowcase() {
                     Case Studies
                   </h3>
                   <p className="text-sm text-foreground-muted">
-                    Real transformations for enterprise clients
+                    See the transformation: Our design vs. the original
                   </p>
                 </div>
               </div>
@@ -149,13 +152,14 @@ export function ServicesShowcase() {
             </div>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* One comparison per row */}
+          <div className="space-y-12">
             {caseStudies.map((study, index) => (
-              <CaseStudyCard
+              <ComparisonCard
                 key={study.id}
                 study={study}
                 index={index}
-                onSelect={(s) => handleSelectStudy(s, "#F59E0B")}
+                accentColor="#F59E0B"
               />
             ))}
           </div>
@@ -217,8 +221,8 @@ export function ServicesShowcase() {
               </span>
             </h3>
             <p className="text-foreground-muted max-w-xl mx-auto">
-              From a free audit to full transformation, we have a solution for
-              every stage of your product&apos;s journey.
+              From quick hourly work to full enterprise partnerships, we scale
+              to fit your needs.
             </p>
           </AnimatedContainer>
 
@@ -232,6 +236,33 @@ export function ServicesShowcase() {
               />
             ))}
           </div>
+        </div>
+
+        {/* Ongoing Services */}
+        <div className="mb-24">
+          <AnimatedContainer animation="fadeInUp" className="text-center mb-12">
+            <h3 className="display-md mb-4">
+              <span className="text-foreground">Keep It</span>{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #00D4FF 0%, #A855F7 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Running
+              </span>
+            </h3>
+            <p className="text-foreground-muted max-w-xl mx-auto">
+              Launch is just the beginning. We offer hosting, domains, and
+              ongoing maintenance to keep your site fast, secure, and up-to-date.
+            </p>
+          </AnimatedContainer>
+
+          <OngoingServices
+            services={ongoingServices}
+            onCtaClick={scrollToContact}
+          />
         </div>
 
         {/* Testimonials */}
