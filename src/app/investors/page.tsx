@@ -134,8 +134,8 @@ function InvestorContent() {
             <AnimatedContainer animation="fadeInUp" delay={0.2}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { label: "IPs in Portfolio", value: "10" },
-                  { label: "SDK Products", value: "4" },
+                  { label: "IPs in Portfolio", value: "12" },
+                  { label: "SDK Products", value: "6" },
                   { label: "Investment Opportunities", value: "6" },
                   { label: "Target Market Size", value: "$XXB" },
                 ].map((metric, index) => (

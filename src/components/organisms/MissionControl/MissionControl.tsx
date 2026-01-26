@@ -77,7 +77,7 @@ export function MissionControl() {
 
           <AnimatedContainer animation="fadeInUp" delay={0.2}>
             <p className="text-xl text-foreground-muted max-w-2xl mx-auto mb-8">
-              10 intellectual properties orbiting the Compassionate Design universe.
+              12 intellectual properties orbiting the Compassionate Design universe.
               Click any satellite to access its dossier.
             </p>
           </AnimatedContainer>

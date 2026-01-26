@@ -37,7 +37,7 @@ export function IPGallery() {
 
           <AnimatedContainer animation="fadeInUp" delay={0.1}>
             <h2 className="display-lg mb-6">
-              <span className="text-foreground">10 IPs.</span>{" "}
+              <span className="text-foreground">12 IPs.</span>{" "}
               <span className="gradient-text">Infinite Potential.</span>
             </h2>
           </AnimatedContainer>
