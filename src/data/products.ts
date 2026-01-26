@@ -290,6 +290,62 @@ export const ips: IP[] = [
       "Community mod support",
     ],
   },
+  {
+    id: "stuffed-and-stitched",
+    title: "Stuffed & Stitched",
+    tagline: "Tactical Card Battler with Fluffgore Aesthetics",
+    description:
+      "A tactical card battler featuring adorable-yet-disturbing stuffed animals—'Care Bears raised in a landfill.' Combines digital gameplay with physical collectible cards, targeting TCG enthusiasts and horror/cute culture fans.",
+    image: "/images/products/stuffed-stitched.png",
+    category: "investment",
+    status: "seeking-investment",
+    developmentStage: "beta",
+    orbitRadius: 2.5,
+    orbitSpeed: 0.4,
+    color: "#8B4513",
+    investorData: {
+      marketSize: "$14B+ Global TCG Market",
+      targetAudience: "TCG players (MTG/Pokemon), Horror/cute culture enthusiasts, Ages 18-35",
+      revenueModel: "Digital game ($3) + Physical card sales + IAP + Organized play",
+      competitiveAdvantage: "200+ unique cards ready, genre-blending aesthetic with no direct competitors",
+      fundingNeeded: "$15K Initial Investment",
+      projectedROI: "Target $50-150K Year 1 Revenue",
+    },
+    features: [
+      "200+ unique card designs",
+      "6 keyword mechanics",
+      "Physical-digital hybrid",
+      "Organized play system",
+    ],
+  },
+  {
+    id: "ninth-gate",
+    title: "The Ninth Gate: Covenant of Shadows",
+    tagline: "Supernatural Action-Platformer",
+    description:
+      "A supernatural action-platformer where players must conquer eight cursed domains, each ruled by a powerful dark entity. Defeat each boss to claim their unique weapon and unlock the path to face Cthulhu in the final ninth gate.",
+    image: "/images/products/ninth-gate.png",
+    category: "investment",
+    status: "seeking-investment",
+    developmentStage: "alpha",
+    orbitRadius: 2.9,
+    orbitSpeed: 0.32,
+    color: "#4B0082",
+    investorData: {
+      marketSize: "$2.8B Action-Platformer Market",
+      targetAudience: "Metroidvania fans, Dark fantasy gamers, Ages 16-40",
+      revenueModel: "Premium release + Cosmetic DLC",
+      competitiveAdvantage: "Signature 9-gate system with boss-weapon progression",
+      fundingNeeded: "$50K Development Budget",
+      projectedROI: "3.8x over 3 years",
+    },
+    features: [
+      "8 unique boss battles",
+      "Boss weapon acquisition",
+      "Dark shadows aesthetic",
+      "Cthulhu final boss",
+    ],
+  },
 ];
 
 // Helper functions for filtering
