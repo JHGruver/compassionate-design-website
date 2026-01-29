@@ -1,12 +1,13 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ips } from "@/data/products";
 import { getIPTheme, getTransitionTiming } from "@/data/ipThemes";
+import { InterestModal } from "@/components/organisms/InterestModal";
 
 // Back arrow icon
 const ArrowLeftIcon = () => (
@@ -44,6 +45,7 @@ export default function ProductPage() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ip = useMemo(() => ips.find((p) => p.id === id), [id]);
   const theme = useMemo(() => getIPTheme(id), [id]);
@@ -407,6 +409,7 @@ export default function ProductPage() {
             className="text-center pt-8"
           >
             <button
+              onClick={() => setIsModalOpen(true)}
               className="px-10 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-105"
               style={{
                 background: theme.gradient,
@@ -427,6 +430,15 @@ export default function ProductPage() {
       <div
         className="h-1 w-full"
         style={{ background: theme.gradient }}
+      />
+
+      {/* Interest Modal */}
+      <InterestModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        ipId={ip.id}
+        ipTitle={ip.title}
+        isInvestment={isInvestment}
       />
     </div>
   );
