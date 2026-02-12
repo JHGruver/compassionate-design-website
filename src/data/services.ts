@@ -303,13 +303,48 @@ export const metrics: Metric[] = [
 ];
 
 // ============================================
-// TESTIMONIALS
-// [NEEDS REAL DATA] — Paste actual LinkedIn recommendation quotes from:
-// - Christina Tomter
-// - Matthew Kinlaw
-// - Aravind Sankar
-// - Matthew Feinberg
-// Section is hidden on the site until these are filled in.
+// TESTIMONIALS (Real LinkedIn recommendations)
 // ============================================
 
-export const testimonials: Testimonial[] = [];
+export const testimonials: Testimonial[] = [
+  {
+    id: "testimonial-ahmer",
+    quote:
+      "I quickly came to depend on Jacob's insight into thinking through multi-system interactions with complex requirements. While many designers consider the end user and creating an intuitive design, a great designer also considers the environment and safety needs of those users. Jacob consistently exceeded that bar of user empathy.",
+    author: "Ahmer Khan",
+    title: "AI & Decision Insights Lead",
+    company: "CloudCar",
+  },
+  {
+    id: "testimonial-feinberg",
+    quote:
+      "Having him on the team is akin to having an extra Product Manager. Jacob is capable of leading other designers, working directly with stakeholders and C-Suite individuals, and can be counted on to deliver a breadth of work in a timely manner. Jacob goes the extra mile and can be counted on to research his decisions and be up to date on the latest Best Practices.",
+    author: "Matthew Feinberg",
+    title: "Director of Product",
+    company: "20+ Years in Product & Engineering",
+  },
+  {
+    id: "testimonial-tomter",
+    quote:
+      "Jacob is an exemplary UI UX Professional with an abundance of expertise in the industry, as well as a calming and professional demeanor. I really admired the way he was able to lift up other team members and help them to see the way forward when it felt like work was ambiguous or frustrating.",
+    author: "Christina Tomter",
+    title: "IT Professional",
+    company: "Amperon (Clean Energy)",
+  },
+  {
+    id: "testimonial-kinlaw",
+    quote:
+      "Jacob is a kind, thoughtful, highly talented UI/UX designer who was instrumental in designing/restructuring our internal CRM app. Using best practices, relentless focus, and tenacious attention to detail, he delivered a best-in-class experience for our users. Jacob's positivity lights up the room and is an absolute delight to work with.",
+    author: "Matthew Kinlaw",
+    title: "Executive Director, Commercial Solutions Lead",
+    company: "",
+  },
+  {
+    id: "testimonial-sankar",
+    quote:
+      "Jacob was immensely helpful in coming up with the final product design, driving numerous white-boarding and brainstorming sessions. His expertise was one of the key drivers for this project. The end result was a well received design with great feedback from the management and end users.",
+    author: "Aravind Sankar",
+    title: "Software Engineer",
+    company: "Walmart",
+  },
+];
