@@ -54,25 +54,28 @@ export function Hero() {
 
           <AnimatedContainer animation="fadeInUp" delay={0.1}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              <span className="block text-foreground">Crafting</span>
-              <span className="block gradient-text">Digital Excellence</span>
+              <span className="block text-foreground">Enterprise UX</span>
+              <span className="block gradient-text">That Converts</span>
             </h1>
           </AnimatedContainer>
 
           <AnimatedContainer animation="fadeInUp" delay={0.2}>
             <p className="text-base md:text-lg text-foreground-muted max-w-lg mb-8">
-              Where obsessive craft meets radical empathy. We build side projects
-              that feel illegal to use—in the best way possible.
+              11+ years designing for Boeing, Cisco, Merrill Lynch, and
+              Charles Schwab. We transform dated interfaces into modern
+              experiences that move metrics.
             </p>
           </AnimatedContainer>
 
           <AnimatedContainer animation="fadeInUp" delay={0.3}>
             <div className="flex flex-col sm:flex-row items-start gap-3">
-              <Button size="md" glowEffect onClick={() => scrollToSection("portfolio")}>
-                Explore Products
-              </Button>
-              <Button variant="outline" size="md" onClick={() => scrollToSection("about")}>
-                Learn More
+              <a href="https://calendly.com/jgruver/30min" target="_blank" rel="noopener noreferrer">
+                <Button size="md" glowEffect>
+                  Book a Free UX Audit
+                </Button>
+              </a>
+              <Button variant="outline" size="md" onClick={() => scrollToSection("services")}>
+                View Our Work
               </Button>
             </div>
           </AnimatedContainer>

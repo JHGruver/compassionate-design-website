@@ -124,8 +124,7 @@ function InvestorContent() {
                   and visionary game concepts seeking investment partnerships.
                 </p>
                 <p className="text-foreground-muted leading-relaxed">
-                  [Placeholder: Add your company&apos;s unique value proposition,
-                  market opportunity, and key differentiators here.]
+                  With 11+ years of enterprise design experience across automotive, aerospace, healthcare, and finance — including work with Boeing, Cisco, Merrill Lynch, and Jaguar Land Rover — Compassionate Design brings proven product methodology to every IP. Our SDK products serve developers building the next generation of interactive experiences, while our investment-stage game concepts target underserved markets with differentiated gameplay mechanics.
                 </p>
               </div>
             </AnimatedContainer>
@@ -137,7 +136,7 @@ function InvestorContent() {
                   { label: "IPs in Portfolio", value: "12" },
                   { label: "SDK Products", value: "6" },
                   { label: "Investment Opportunities", value: "6" },
-                  { label: "Target Market Size", value: "$XXB" },
+                  { label: "Enterprise Clients", value: "7+" },
                 ].map((metric, index) => (
                   <div
                     key={index}
@@ -172,8 +171,7 @@ function InvestorContent() {
                     Our Mission
                   </h3>
                   <p className="text-foreground-muted leading-relaxed">
-                    [Placeholder: Describe your company&apos;s mission and the
-                    problem you&apos;re solving in the market.]
+                    Compassionate Design exists to build digital products that prioritize the humans using them. We believe the best software comes from obsessive craft paired with radical empathy — not corporate shortcuts. Our mission is to create experiences people love to use, whether that&apos;s an enterprise dashboard or an indie game.
                   </p>
                 </div>
               </AnimatedContainer>
@@ -184,8 +182,7 @@ function InvestorContent() {
                     Our Team
                   </h3>
                   <p className="text-foreground-muted leading-relaxed">
-                    [Placeholder: Introduce key team members, their backgrounds,
-                    and relevant experience.]
+                    Led by Jacob Gruver, a design leader with 11+ years of experience shipping products for Boeing, Cisco, Merrill Lynch, Charles Schwab, Jaguar Land Rover, and Walmart. Jacob serves as Creative Director and client relationship owner, supported by a contract team of 6 specialists across product strategy, UX/UI design, media production, and full-stack development. The team has collectively shipped products touching 30M+ vehicles, reduced login friction by 40%, and increased user engagement by 2.5x.
                   </p>
                 </div>
               </AnimatedContainer>
@@ -196,8 +193,7 @@ function InvestorContent() {
                     Our Approach
                   </h3>
                   <p className="text-foreground-muted leading-relaxed">
-                    [Placeholder: Explain your unique approach to product
-                    development and what sets you apart from competitors.]
+                    We apply enterprise-grade design methodology to every product — user research, iterative prototyping, accessibility-first development, and metrics-driven validation. Each IP is built with a compassionate design framework that prioritizes emotional resonance alongside technical excellence. Our SDK products ship production-ready code, and our game concepts are validated through community testing before seeking investment.
                   </p>
                 </div>
               </AnimatedContainer>
@@ -229,10 +225,12 @@ function InvestorContent() {
                   </p>
                   <ul className="space-y-4">
                     {[
-                      "Product 1 - [Brief description]",
-                      "Product 2 - [Brief description]",
-                      "Product 3 - [Brief description]",
-                      "Product 4 - [Brief description]",
+                      "InCharacter — AI-powered character conversation engine (Production)",
+                      "Proximus — Location-aware social gaming framework (Beta)",
+                      "Paper Beats Rock — Strategic twist on a classic mechanic (Production)",
+                      "&chill — Watch-together synchronization SDK (Beta)",
+                      "RewarDING! — Gamification and rewards engine (Alpha)",
+                      "Space Surfing — Physics-based multiplayer framework (Alpha)",
                     ].map((item, index) => (
                       <li
                         key={index}
@@ -263,12 +261,12 @@ function InvestorContent() {
                   </p>
                   <ul className="space-y-4">
                     {[
-                      "Project 1 - [Brief description and funding need]",
-                      "Project 2 - [Brief description and funding need]",
-                      "Project 3 - [Brief description and funding need]",
-                      "Project 4 - [Brief description and funding need]",
-                      "Project 5 - [Brief description and funding need]",
-                      "Project 6 - [Brief description and funding need]",
+                      "Darwin's Ark — Evolution strategy MMO (Concept)",
+                      "Dignity — Narrative RPG about human rights (Prototype)",
+                      "Masquerade Online — Social deduction MMO (Concept)",
+                      "Smash the Police State — Tactical resistance strategy (Prototype)",
+                      "Stuffed & Stitched — Tactical card battler (Beta)",
+                      "The Ninth Gate: Covenant of Shadows — Supernatural action-platformer (Alpha)",
                     ].map((item, index) => (
                       <li
                         key={index}
@@ -300,8 +298,7 @@ function InvestorContent() {
                   Funding Requirements
                 </h3>
                 <p className="text-foreground-muted leading-relaxed">
-                  [Placeholder: Detail your funding requirements, use of funds,
-                  and expected milestones.]
+                  Individual IP funding requirements vary by development stage. Concept-stage IPs require $50K–$150K for prototype development and market validation. Prototype-stage IPs require $100K–$300K for beta development, user testing, and initial launch. Funds are allocated across development (60%), marketing and community building (25%), and operations (15%).
                 </p>
               </div>
             </AnimatedContainer>
@@ -312,8 +309,7 @@ function InvestorContent() {
                   Revenue Model
                 </h3>
                 <p className="text-foreground-muted leading-relaxed">
-                  [Placeholder: Explain your revenue streams, pricing strategy,
-                  and path to profitability.]
+                  SDK products generate revenue through developer licensing (freemium model with premium tiers). Game IPs target revenue through in-app purchases, seasonal content, and premium editions. The design services arm of the business ($140K+ in client revenue to date) provides cash flow stability while IP products scale. Each IP has a detailed revenue model available upon request.
                 </p>
               </div>
             </AnimatedContainer>
@@ -324,8 +320,7 @@ function InvestorContent() {
                   Growth Projections
                 </h3>
                 <p className="text-foreground-muted leading-relaxed">
-                  [Placeholder: Share your growth projections, key metrics, and
-                  timeline for achieving milestones.]
+                  Year 1 targets: Launch 2 SDK products to market, advance 2 game IPs from concept to prototype, build design services to $7,500/month recurring revenue. Year 2 targets: Scale SDK products to 10K+ developer users, launch first game IP to early access, secure additional investment for highest-performing IPs. Key growth metrics tracked: developer adoption rate, monthly active users, community engagement, and revenue per IP.
                 </p>
               </div>
             </AnimatedContainer>

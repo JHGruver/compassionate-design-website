@@ -6,11 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/atoms/Button";
-import { scrollToSection } from "@/lib/scroll";
 
 const navLinks = [
-  { href: "#portfolio", label: "Products" },
+  { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
+  { href: "/labs", label: "Labs" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -73,9 +73,11 @@ export function Header() {
               />
             </Link>
           ))}
-          <Button variant="outline" size="sm" onClick={() => scrollToSection("contact")}>
-            Get Started
-          </Button>
+          <a href="https://calendly.com/jgruver/30min" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm">
+              Book a Call
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -136,9 +138,11 @@ export function Header() {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.3 }}
               >
-                <Button size="lg" onClick={() => { scrollToSection("contact"); setIsMobileMenuOpen(false); }}>
-                  Get Started
-                </Button>
+                <a href="https://calendly.com/jgruver/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button size="lg">
+                    Book a Call
+                  </Button>
+                </a>
               </motion.div>
             </motion.div>
           )}

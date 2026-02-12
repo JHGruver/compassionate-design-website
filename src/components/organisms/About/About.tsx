@@ -47,10 +47,10 @@ export function About() {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             {[
-              { value: "100%", label: "User-tested designs" },
-              { value: "6", label: "Products in development" },
-              { value: "0", label: "Assumptions shipped" },
-              { value: "1", label: "Priority: The human" },
+              { value: "11+", label: "Years of Experience" },
+              { value: "30M+", label: "Vehicles Shipped" },
+              { value: "$140K", label: "Client Revenue Generated" },
+              { value: "7+", label: "Enterprise Clients" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">

@@ -380,21 +380,21 @@ export interface TeamDivision {
 
 export const teamMembers: TeamDivision[] = [
   {
-    id: "product",
-    title: "Product Division",
-    description: "Visionary leaders steering the ship toward innovation.",
+    id: "leadership",
+    title: "Leadership",
+    description: "Strategy, vision, and client relationships.",
     image: "/images/team/cyborgs-leadership.png",
     color: "#FF006E", // Magenta
     members: [
       {
         name: "Jacob Gruver",
-        role: "Head of Design",
+        role: "Creative Director & Founder",
         class: "Design Overlord",
         stats: { creativity: 98, technical: 85, leadership: 92, chaos: 77 },
       },
       {
         name: "Matthew Feinberg",
-        role: "Director of Product",
+        role: "Product Strategy",
         class: "Product Sage",
         stats: { creativity: 88, technical: 79, leadership: 95, chaos: 42 },
       },
@@ -402,14 +402,14 @@ export const teamMembers: TeamDivision[] = [
   },
   {
     id: "design",
-    title: "Design Division",
+    title: "Design",
     description: "Crafting interfaces that feel like magic.",
     image: "/images/team/cyborgs-designing.png",
     color: "#A855F7", // Violet
     members: [
       {
         name: "Jeremy Summer",
-        role: "UI Specialist",
+        role: "UI Development",
         class: "Pixel Wizard",
         stats: { creativity: 95, technical: 82, leadership: 68, chaos: 55 },
       },
@@ -421,7 +421,7 @@ export const teamMembers: TeamDivision[] = [
       },
       {
         name: "Richard Guillory",
-        role: "Media Design Specialist",
+        role: "Media & Visual Design",
         class: "Visual Alchemist",
         stats: { creativity: 97, technical: 71, leadership: 62, chaos: 83 },
       },
@@ -429,20 +429,20 @@ export const teamMembers: TeamDivision[] = [
   },
   {
     id: "engineering",
-    title: "Development Division",
+    title: "Engineering",
     description: "Building the impossible, one line of code at a time.",
     image: "/images/team/cyborgs-coding.png",
     color: "#00F5FF", // Cyan
     members: [
       {
         name: "Jarred Jacobs",
-        role: "Full Stack Developer",
+        role: "Full Stack Development",
         class: "Code Ninja",
         stats: { creativity: 72, technical: 96, leadership: 70, chaos: 61 },
       },
       {
         name: "Ryan Anderson",
-        role: "Full Stack Developer",
+        role: "Full Stack Development",
         class: "Stack Sorcerer",
         stats: { creativity: 75, technical: 94, leadership: 65, chaos: 58 },
       },

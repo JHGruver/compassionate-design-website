@@ -101,19 +101,7 @@ export function ServicesShowcase() {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           {metrics.map((metric, i) => (
-            <div key={i} className="text-center relative">
-              {metric.isPlaceholder && (
-                <div
-                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full flex items-center justify-center text-[8px]"
-                  style={{
-                    backgroundColor: "rgba(245, 158, 11, 0.2)",
-                    color: "#F59E0B",
-                  }}
-                  title="Placeholder - Update with real data"
-                >
-                  *
-                </div>
-              )}
+            <div key={i} className="text-center">
               <div
                 className="text-3xl md:text-4xl font-bold mb-1"
                 style={{ color: "#F59E0B" }}
@@ -226,7 +214,7 @@ export function ServicesShowcase() {
             </p>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {serviceTiers.map((tier, index) => (
               <ServiceTier
                 key={tier.id}
@@ -265,37 +253,39 @@ export function ServicesShowcase() {
           />
         </div>
 
-        {/* Testimonials */}
-        <div className="mb-16">
-          <AnimatedContainer animation="fadeInUp" className="text-center mb-12">
-            <h3 className="display-md mb-4">
-              <span className="text-foreground">What Clients</span>{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Say
-              </span>
-            </h3>
-          </AnimatedContainer>
+        {/* Testimonials — hidden until real quotes are added */}
+        {testimonials.length > 0 && (
+          <div className="mb-16">
+            <AnimatedContainer animation="fadeInUp" className="text-center mb-12">
+              <h3 className="display-md mb-4">
+                <span className="text-foreground">What Clients</span>{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Say
+                </span>
+              </h3>
+            </AnimatedContainer>
 
-          <motion.div
-            className="rounded-2xl p-8 md:p-12"
-            style={{
-              background: "rgba(255, 255, 255, 0.02)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <TestimonialSlider testimonials={testimonials} />
-          </motion.div>
-        </div>
+            <motion.div
+              className="rounded-2xl p-8 md:p-12"
+              style={{
+                background: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <TestimonialSlider testimonials={testimonials} />
+            </motion.div>
+          </div>
+        )}
 
         {/* Final CTA */}
         <motion.div

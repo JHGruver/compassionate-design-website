@@ -131,7 +131,7 @@ export function Contact() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/jacobgruver/"
             target="_blank"
             rel="noopener noreferrer"
             className="group glass rounded-2xl p-8 text-left hover:border-accent-violet transition-all duration-300"

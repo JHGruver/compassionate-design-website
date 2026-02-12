@@ -176,34 +176,19 @@ export const portfolioSites: CaseStudy[] = [
 
 export const serviceTiers: ServiceTier[] = [
   {
-    id: "hourly",
-    name: "Hourly",
-    price: "$75/hr",
-    priceNote: "Simple projects",
-    description: "Perfect for landing pages, small websites, and quick design tasks.",
-    features: [
-      "Landing pages & microsites",
-      "Simple business websites",
-      "UI touch-ups & tweaks",
-      "Quick turnaround",
-      "Pay only for what you need",
-      "No long-term commitment",
-    ],
-    ctaText: "Start a Project",
-  },
-  {
-    id: "starter",
-    name: "Starter",
-    price: "Starting at $3k",
+    id: "foundation",
+    name: "Foundation",
+    price: "Starting at $5,000",
     priceNote: "Full project",
     description: "Complete website or app design with a polished, professional result.",
     features: [
       "Free discovery call",
-      "Full website design",
+      "Full website or app design",
       "Mobile responsive",
       "Design file delivery",
       "Developer handoff docs",
       "2 revision rounds",
+      "Project complete in 4–6 weeks",
     ],
     highlighted: true,
     ctaText: "Get Started",
@@ -211,17 +196,18 @@ export const serviceTiers: ServiceTier[] = [
   {
     id: "enterprise",
     name: "Enterprise",
-    price: "Custom",
+    price: "$15,000–$50,000",
     priceNote: "Ongoing partnership",
-    description: "Full redesign with design systems and ongoing support.",
+    description: "Full redesign with design systems, prototyping, and ongoing support.",
     features: [
       "Free UX/UI audit",
-      "Complete redesign",
+      "Complete product redesign",
       "Design system creation",
       "Prototype & user testing",
       "Implementation support",
       "Monthly maintenance",
       "Priority support",
+      "Dedicated design lead",
     ],
     ctaText: "Schedule a Call",
   },
@@ -277,14 +263,16 @@ export const ongoingServices: OngoingService[] = [
   {
     id: "bundle",
     name: "Complete Care",
-    price: "$199",
+    price: "$299",
     period: "per month",
-    description: "All-inclusive package: hosting, maintenance, and peace of mind.",
+    description: "All-inclusive package: hosting, maintenance, strategy, and peace of mind.",
     features: [
       "Everything in Hosting",
       "Everything in Maintenance",
       "Domain renewal included",
       "Monthly analytics reports",
+      "Quarterly strategy call",
+      "SEO monitoring",
       "Priority support",
       "4 hours of updates included",
     ],
@@ -292,62 +280,36 @@ export const ongoingServices: OngoingService[] = [
 ];
 
 // ============================================
-// METRICS (Placeholders - Update with real data)
+// METRICS
 // ============================================
 
 export const metrics: Metric[] = [
   {
     value: "40%",
-    label: "Faster Load Times",
-    isPlaceholder: true,
+    label: "Login Friction Reduced",
   },
   {
     value: "2.5x",
-    label: "User Engagement",
-    isPlaceholder: true,
+    label: "Engagement Increase",
   },
   {
-    value: "15+",
-    label: "Enterprise Clients",
-    isPlaceholder: true,
+    value: "30M+",
+    label: "Vehicles Shipped",
   },
   {
     value: "60%",
-    label: "Fewer Support Tickets",
-    isPlaceholder: true,
+    label: "Support Tickets Reduced",
   },
 ];
 
 // ============================================
-// TESTIMONIALS (Placeholders - Update with real quotes)
+// TESTIMONIALS
+// [NEEDS REAL DATA] — Paste actual LinkedIn recommendation quotes from:
+// - Christina Tomter
+// - Matthew Kinlaw
+// - Aravind Sankar
+// - Matthew Feinberg
+// Section is hidden on the site until these are filled in.
 // ============================================
 
-export const testimonials: Testimonial[] = [
-  {
-    id: "testimonial-1",
-    quote:
-      "Working with Compassionate Design transformed our product. Their attention to detail and user-focused approach exceeded our expectations.",
-    author: "Client Name",
-    title: "VP of Product",
-    company: "Company Name",
-    isPlaceholder: true,
-  },
-  {
-    id: "testimonial-2",
-    quote:
-      "The team delivered a modern, intuitive interface that our users love. Our engagement metrics have never been better.",
-    author: "Client Name",
-    title: "Head of Design",
-    company: "Company Name",
-    isPlaceholder: true,
-  },
-  {
-    id: "testimonial-3",
-    quote:
-      "From audit to implementation, the process was seamless. They truly understand how to modernize enterprise products without disrupting workflows.",
-    author: "Client Name",
-    title: "CTO",
-    company: "Company Name",
-    isPlaceholder: true,
-  },
-];
+export const testimonials: Testimonial[] = [];
