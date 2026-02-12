@@ -209,7 +209,7 @@ export function ServicesShowcase() {
               </span>
             </h3>
             <p className="text-foreground-muted max-w-xl mx-auto">
-              From quick hourly work to full enterprise partnerships, we scale
+              From focused builds to full enterprise partnerships, we scale
               to fit your needs.
             </p>
           </AnimatedContainer>
