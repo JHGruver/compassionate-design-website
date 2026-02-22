@@ -185,9 +185,9 @@ export const ips: IP[] = [
   {
     id: "darwins-ark",
     title: "Darwin's Ark",
-    tagline: "Evolution Strategy MMO",
+    tagline: "Next-Gen Monster Open World Battle Game",
     description:
-      "A massively multiplayer strategy game where players guide species through millions of years of evolution. Compete, adapt, and dominate ecosystems in this scientifically-grounded experience.",
+      "Collect, evolve, and battle hundreds of creatures in a living open world. Darwin's Ark combines deep type-based combat, real-time gambling arenas, branching evolution trees, and competitive league play into a monster-battler unlike anything before it.",
     image: "/images/misc/dabw-4.jpg",
     category: "investment",
     status: "seeking-investment",
@@ -195,18 +195,20 @@ export const ips: IP[] = [
     orbitRadius: 2.8,
     orbitSpeed: 0.35,
     color: "#22C55E",
+    link: "https://darwins-ark.vercel.app",
     investorData: {
       marketSize: "$3.2B Strategy MMO Market",
-      targetAudience: "Strategy gamers, Science enthusiasts, Ages 18-45",
-      revenueModel: "F2P with cosmetics + Season pass",
-      competitiveAdvantage: "Partnership with natural history museums",
+      targetAudience: "Monster-battler fans, Strategy gamers, Ages 13-35",
+      revenueModel: "F2P with cosmetics + Season pass + Arena entry fees",
+      competitiveAdvantage: "Four interlocking game pillars (Gambling, Battling, Stable, Leagues) creating unmatched retention loops",
       fundingNeeded: "$2.5M Seed Round",
       projectedROI: "4.2x over 5 years",
     },
     features: [
-      "Real evolutionary mechanics",
-      "Persistent world",
-      "Educational partnerships",
+      "Claw-machine gambling arenas",
+      "Type-based battle system",
+      "Branching evolution trees",
+      "Competitive ranked leagues",
     ],
   },
   {

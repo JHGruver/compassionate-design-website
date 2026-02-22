@@ -406,18 +406,38 @@ export default function ProductPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9, ease: transitionTiming }}
-            className="text-center pt-8"
+            className="text-center pt-8 flex flex-col items-center gap-4"
           >
+            {ip.link && (
+              <a
+                href={ip.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-10 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-105"
+                style={{
+                  background: theme.gradient,
+                  color: theme.text === "#1A1A1A" ? "#FFFFFF" : theme.background.includes("255") ? "#1A1A1A" : "#FFFFFF",
+                  borderRadius: theme.borderRadius,
+                  boxShadow: `0 10px 40px ${theme.glowColor}40`,
+                  fontFamily: theme.fontFamily,
+                  letterSpacing: theme.letterSpacing,
+                  textDecoration: "none",
+                }}
+              >
+                Explore {ip.title}
+              </a>
+            )}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-10 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-105"
+              className={`px-10 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-105 ${ip.link ? "" : ""}`}
               style={{
-                background: theme.gradient,
-                color: theme.text === "#1A1A1A" ? "#FFFFFF" : theme.background.includes("255") ? "#1A1A1A" : "#FFFFFF",
+                background: ip.link ? "transparent" : theme.gradient,
+                color: ip.link ? theme.primary : theme.text === "#1A1A1A" ? "#FFFFFF" : theme.background.includes("255") ? "#1A1A1A" : "#FFFFFF",
                 borderRadius: theme.borderRadius,
-                boxShadow: `0 10px 40px ${theme.glowColor}40`,
+                boxShadow: ip.link ? "none" : `0 10px 40px ${theme.glowColor}40`,
                 fontFamily: theme.fontFamily,
                 letterSpacing: theme.letterSpacing,
+                border: ip.link ? `2px solid ${theme.primary}40` : "none",
               }}
             >
               {isInvestment ? "Request Investment Package" : "Get Started with SDK"}
