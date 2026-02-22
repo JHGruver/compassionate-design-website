@@ -195,7 +195,7 @@ export const ips: IP[] = [
     orbitRadius: 2.8,
     orbitSpeed: 0.35,
     color: "#22C55E",
-    link: "https://darwins-ark.vercel.app",
+    link: "https://darwins-ark-site.vercel.app",
     investorData: {
       marketSize: "$3.2B Strategy MMO Market",
       targetAudience: "Monster-battler fans, Strategy gamers, Ages 13-35",
