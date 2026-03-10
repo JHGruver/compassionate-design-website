@@ -168,6 +168,30 @@ export const portfolioSites: CaseStudy[] = [
     link: "https://www.paralogicpresents.com",
     isPortfolio: true,
   },
+  {
+    id: "perpetuals",
+    client: "Perpetuals.com",
+    project: "Crypto Trading Platform Showcase",
+    description:
+      "A comprehensive product design showcase for a cryptocurrency derivatives trading platform. Features a mobile-first trading app, design system with 50+ components, competitive analysis, and a strategic product vision — every pixel documented and defensible.",
+    image: "/images/portfolio/perpetuals.png",
+    tags: ["Fintech", "Crypto", "Product Design"],
+    results: "6+ showcase deliverables",
+    link: "https://jhgruver.github.io/perpetuals-showcase/sites/index.html",
+    isPortfolio: true,
+  },
+  {
+    id: "centegix",
+    client: "CENTEGIX",
+    project: "Safety Technology Research Dashboard",
+    description:
+      "A research dashboard synthesizing company intelligence, market analysis, and design strategy for a leading safety technology company. Covers competitive landscape, regulatory drivers, and a design leadership strategy for their wearable panic badge ecosystem with 800K+ devices deployed.",
+    image: "/images/portfolio/centegix.png",
+    tags: ["Safety Tech", "Research", "EdTech"],
+    results: "800K+ badges analyzed",
+    link: "https://jhgruver.github.io/centegix-interview/",
+    isPortfolio: true,
+  },
 ];
 
 // ============================================

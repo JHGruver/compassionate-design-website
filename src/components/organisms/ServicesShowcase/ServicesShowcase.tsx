@@ -36,7 +36,7 @@ export function ServicesShowcase() {
   };
 
   return (
-    <section id="services" className="relative py-32 px-6 overflow-hidden">
+    <section id="services" className="relative py-32 px-6 overflow-x-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-background opacity-10" />
 

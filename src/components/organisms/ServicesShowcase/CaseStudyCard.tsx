@@ -28,16 +28,8 @@ export function CaseStudyCard({ study, index, accentColor = "#F59E0B", onSelect 
   };
 
   return (
-    <motion.div
+    <div
       className="group relative"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.15,
-        ease: [0.16, 1, 0.3, 1],
-      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
@@ -203,6 +195,6 @@ export function CaseStudyCard({ study, index, accentColor = "#F59E0B", onSelect 
           }}
         />
       </div>
-    </motion.div>
+    </div>
   );
 }
