@@ -13,6 +13,8 @@ export interface CaseStudy {
   results?: string;
   link?: string;
   isPortfolio?: boolean;
+  compact?: boolean;
+  wide?: boolean;
 }
 
 export interface ServiceTier {
@@ -157,18 +159,6 @@ export const portfolioSites: CaseStudy[] = [
     isPortfolio: true,
   },
   {
-    id: "paralogic-presents",
-    client: "Paralogic Presents",
-    project: "Event Promotion Website",
-    description:
-      "An elegant event promotion website featuring exclusive meet-and-greet experiences with Emmy and Golden Globe-winning actor Bruce Davison. Showcases film screenings, art gallery exhibitions, Q&A sessions, and fan interactions with a refined, sophisticated design.",
-    image: "/images/portfolio/paralogic.png",
-    tags: ["Events", "Entertainment", "Marketing"],
-    results: "3-day event launch",
-    link: "https://www.paralogicpresents.com",
-    isPortfolio: true,
-  },
-  {
     id: "perpetuals",
     client: "Perpetuals.com",
     project: "Crypto Trading Platform Showcase",
@@ -181,6 +171,45 @@ export const portfolioSites: CaseStudy[] = [
     isPortfolio: true,
   },
   {
+    id: "paralogic-presents",
+    client: "Paralogic Presents",
+    project: "Event Promotion Website",
+    description:
+      "An elegant event promotion website featuring exclusive meet-and-greet experiences with Emmy and Golden Globe-winning actor Bruce Davison. Showcases film screenings, art gallery exhibitions, Q&A sessions, and fan interactions with a refined, sophisticated design.",
+    image: "/images/portfolio/paralogic.png",
+    tags: ["Events", "Entertainment", "Marketing"],
+    results: "3-day event launch",
+    link: "https://www.paralogicpresents.com/",
+    isPortfolio: true,
+    compact: true,
+  },
+  {
+    id: "bruce-davison-art",
+    client: "Bruce Davison Art",
+    project: "Artist Portfolio & Gallery",
+    description:
+      "A gallery-style portfolio for artist and actor Bruce Davison, with a cinematic intro, a coverflow gallery of his paintings, and a refined dark-and-gold aesthetic that lets the artwork lead.",
+    image: "/images/portfolio/brucedavison.png",
+    tags: ["Art", "Gallery", "Portfolio"],
+    results: "Full collection online",
+    link: "https://www.brucedavisonart.com/",
+    isPortfolio: true,
+    compact: true,
+  },
+  {
+    id: "taste-of-austin-tours",
+    client: "Taste of Austin Tours",
+    project: "Food Tour Booking Website",
+    description:
+      "A warm, photo-driven website for a walking food tour company in Austin, TX, with clear tour details, pricing, corporate event inquiries, and a prominent booking flow.",
+    image: "/images/portfolio/tasteofaustin.png",
+    tags: ["Tourism", "Food", "Booking"],
+    results: "Tours & corporate events",
+    link: "https://www.tasteofaustintours.com/",
+    isPortfolio: true,
+    compact: true,
+  },
+  {
     id: "centegix",
     client: "CENTEGIX",
     project: "Safety Technology Research Dashboard",
@@ -191,6 +220,7 @@ export const portfolioSites: CaseStudy[] = [
     results: "800K+ badges analyzed",
     link: "https://jhgruver.github.io/centegix-interview/",
     isPortfolio: true,
+    wide: true,
   },
 ];
 

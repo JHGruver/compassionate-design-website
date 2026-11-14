@@ -180,15 +180,19 @@ export function ServicesShowcase() {
             </div>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
             {portfolioSites.map((site, index) => (
-              <CaseStudyCard
+              <div
                 key={site.id}
-                study={site}
-                index={index}
-                accentColor="#00D4FF"
-                onSelect={(s) => handleSelectStudy(s, "#00D4FF")}
-              />
+                className={site.compact ? "md:col-span-2" : site.wide ? "md:col-span-6" : "md:col-span-3"}
+              >
+                <CaseStudyCard
+                  study={site}
+                  index={index}
+                  accentColor="#00D4FF"
+                  onSelect={(s) => handleSelectStudy(s, "#00D4FF")}
+                />
+              </div>
             ))}
           </div>
         </div>
